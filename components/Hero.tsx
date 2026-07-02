@@ -33,7 +33,7 @@ export default function Hero() {
   return (
     <>
       {/* 1 — Video band (standalone) */}
-      <section ref={ref} className="relative h-[66vh] min-h-[420px] w-full overflow-hidden">
+      <section ref={ref} className="relative h-screen min-h-[420px] w-full overflow-hidden">
         <motion.div style={{ y: bgY, scale: bgScale }} className="absolute inset-0 will-change-transform">
           <Image
             src={hero.poster}
