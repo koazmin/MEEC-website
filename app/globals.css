@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #fbfaf6;
+  --color-surface: #ffffff;
+  --color-ink: #11241d;
+  --color-primary: #0f6e56;
+  --color-primary-deep: #0b4a3a;
+  --color-primary-soft: #e3efe9;
+  /* Refreshed accent — warm golden amber (matches the brand mark better than the old tangerine) */
+  --color-accent: #e0a226;
+  --color-accent-soft: #f3e2bd;
+  --color-muted: #586b63;
+  --color-line: #e6e3da;
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-mm: var(--font-noto-mm), var(--font-jakarta), sans-serif;
+
+  --radius-card: 18px;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-primary-deep);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---- Motion utilities ---- */
+@keyframes meec-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes meec-float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(0, -22px); }
+}
+@keyframes meec-float-x {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(26px, -14px); }
+}
+@keyframes meec-shimmer {
+  100% { transform: translateX(100%); }
+}
+@keyframes meec-spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+.animate-marquee {
+  animation: meec-marquee 32s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+.animate-float {
+  animation: meec-float 7s ease-in-out infinite;
+}
+.animate-float-x {
+  animation: meec-float-x 9s ease-in-out infinite;
+}
+.animate-spin-slow {
+  animation: meec-spin-slow 26s linear infinite;
+}
+
+/* Shine sweep used on primary buttons */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+}
+.shine:hover::after {
+  animation: meec-shimmer 0.9s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-float,
+  .animate-float-x,
+  .animate-spin-slow {
+    animation: none !important;
+  }
+  .shine:hover::after {
+    animation: none !important;
+  }
+}
