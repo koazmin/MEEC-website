@@ -477,28 +477,35 @@ export const japanese = {
 
 export const recruitment = {
   intro:
-    "Help shape the future of education in Myanmar. We are always looking for passionate educators and staff who share our commitment to excellence, character, and lifelong learning.",
-  whyJoin: [
+    "At Mahar Euphoria Education Centre (MEEC), a learning venture of the GED and IGCSE programs, we are committed to guiding future learners toward success. Our recruitment approach focuses on connecting with students, sharing valuable opportunities, and helping them make informed choices for their academic journey and beyond.",
+  banner: "/meec/recruitments/banner.webp",
+  sections: [
     {
-      title: "Purpose-driven work",
-      body: "Be part of a team responsible for the future of our students at every step of their journey.",
-      icon: "heart",
+      title: "Open Days & Campus Tours",
+      body: "At MEEC, our Open Days and Campus Tours give future students the chance to experience life on campus. You'll explore our learning facilities, meet lecturers and student ambassadors, and discover the opportunities available at MEEC. Whether you're considering a program, curious about student life, or looking for admission guidance, our tours are the perfect way to see what makes MEEC unique.",
+      images: ["/meec/recruitments/r1.webp", "/meec/recruitments/r4.webp", "/meec/recruitments/r7.webp"],
     },
     {
-      title: "Growth & development",
-      body: "Continuous professional development opportunities in a culture of improvement.",
-      icon: "stairs",
+      title: "School Visits & Outreach",
+      body: "At MEEC, we bring the campus experience directly to schools. Our recruitment team visits partner schools to share information about programs, scholarships, and career opportunities. Through engaging presentations, interactive workshops, and Q&A sessions, students gain valuable insights to help them plan their future. These visits are designed to inspire, inform, and support students in making confident decisions about their education journey with MEEC.",
+      images: ["/meec/recruitments/r2.webp", "/meec/recruitments/r3.webp", "/meec/recruitments/r5.webp"],
     },
     {
-      title: "A supportive community",
-      body: "Join an enthusiastic, inclusive team that celebrates diversity and integrity.",
-      icon: "award",
+      title: "Info Sessions & Webinars",
+      body: "At MEEC, we host regular information sessions and webinars to guide students and parents through the admission journey. These sessions provide clear insights into our programs, scholarships, and career pathways, while also offering a chance to interact directly with our faculty and advisors.",
+      images: ["/meec/recruitments/r6.webp", "/meec/recruitments/r8.webp", "/meec/recruitments/r9.webp"],
     },
   ],
-  process: [
-    "Send your CV and a short cover letter to our team by phone or email.",
-    "Initial conversation to understand your experience and goals.",
-    "Interview and a short teaching or skills demonstration.",
-    "Welcome to MEEC — onboarding and orientation.",
+  gains: [
+    "Understand program structures and study options",
+    "Learn about scholarships and financial aid opportunities",
+    "Get step-by-step guidance on the application process",
+    "Hear from current students and alumni about their experiences",
+    "Ask questions live and receive personalized advice",
   ],
+  gainsCta: "Join our upcoming webinars to explore how MEEC can shape your future.",
+  admissions: {
+    tagline: "Simple, supportive, and personalized for your success.",
+    body: "At MEEC, admissions are simple and supportive. Our team guides you through applications, scholarships, and FAQs, while advisors provide personalized help every step of the way.",
+  },
 };
