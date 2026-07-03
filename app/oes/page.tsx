@@ -30,6 +30,16 @@ export default function OesPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">Our mission</p>
             <p className="mt-5 font-display text-2xl font-medium leading-snug text-ink md:text-[2rem]">{oes.mission}</p>
           </Reveal>
+          <Reveal delay={0.1}>
+            <figure className="mx-auto mt-10 max-w-2xl rounded-[var(--radius-card)] border border-line bg-surface p-7">
+              <blockquote className="font-display text-lg italic leading-snug text-ink/85">
+                &ldquo;{oes.ceo.quote}&rdquo;
+              </blockquote>
+              <figcaption className="mt-4 text-sm text-muted">
+                <span className="font-medium text-ink">{oes.ceo.name}</span> · {oes.ceo.role}
+              </figcaption>
+            </figure>
+          </Reveal>
         </div>
       </section>
 
@@ -147,11 +157,12 @@ export default function OesPage() {
               <p className="text-sm font-semibold text-primary-deep">Medical Education Guild</p>
               <p className="mt-2 text-[15px] leading-relaxed text-muted">{oes.medicalGuild}</p>
               <div className="mt-4 flex flex-wrap gap-2">
-                {oes.europeNations.map((n) => (
+                {oes.medicalCountries.map((n) => (
                   <span key={n} className="rounded-full bg-surface px-3 py-1 text-xs font-medium text-primary-deep">
                     {n}
                   </span>
                 ))}
+                <span className="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted">+ more</span>
               </div>
             </div>
           </Reveal>
@@ -203,18 +214,63 @@ export default function OesPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="pb-20">
+      {/* OES team */}
+      <section className="bg-surface py-20 md:py-24">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="flex flex-col items-center justify-between gap-6 rounded-[28px] bg-primary px-7 py-10 text-white md:flex-row md:px-14">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">Our team</p>
+            <h2 className="mt-3 font-display text-3xl font-medium leading-tight text-ink md:text-4xl">
+              The people behind OES
+            </h2>
+          </Reveal>
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {oes.team.map((person, i) => (
+              <Reveal key={person.name} delay={i * 0.08}>
+                <div className="h-full rounded-[var(--radius-card)] border border-line bg-paper p-6 text-center">
+                  <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary-soft font-display text-lg font-medium text-primary-deep">
+                    {person.name
+                      .replace(/^(Dr\.|Mr\.|Ms\.|Mrs\.)\s*/i, "")
+                      .split(" ")
+                      .map((w) => w[0])
+                      .slice(0, 2)
+                      .join("")}
+                  </span>
+                  <p className="mt-4 font-medium text-ink">{person.name}</p>
+                  <p className="mt-1 text-sm text-muted">{person.role}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="rounded-[28px] bg-primary px-7 py-10 text-center text-white md:px-14 md:py-14">
             <h2 className="font-display text-2xl font-medium md:text-3xl">Ready to study overseas?</h2>
-            <Link
-              href="/contact"
-              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-base font-semibold text-primary-deep transition-transform hover:scale-[1.03] active:scale-95"
-            >
-              Book a consultation
-              <Icon name="arrow" className="h-4 w-4" />
-            </Link>
+            <p className="mx-auto mt-3 max-w-md text-white/85">
+              Reach the OES team directly on Viber, or book a consultation.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+              {oes.phones.map((p) => (
+                <a
+                  key={p}
+                  href={`tel:${p.replace(/\s/g, "")}`}
+                  className="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 text-base font-semibold text-white ring-1 ring-white/25 transition-colors hover:bg-white/20"
+                >
+                  <Icon name="phone" className="h-4 w-4" />
+                  {p}
+                </a>
+              ))}
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-base font-semibold text-primary-deep transition-transform hover:scale-105 active:scale-95"
+              >
+                Book a consultation
+                <Icon name="arrow" className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

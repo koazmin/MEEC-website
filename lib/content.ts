@@ -268,11 +268,19 @@ export const leadership = [
 // ---------------------------------------------------------------------------
 
 export const oes = {
-  tagline: "Outstanding Education Services",
+  tagline: "Overseas Education Services",
   intro:
     "Your pathway to higher education overseas — from choosing the right course to settling in on campus abroad.",
   mission:
     "To empower students with the right knowledge, resources, and guidance to pursue higher education overseas, fostering academic and personal growth.",
+  ceo: {
+    name: "Dr. Than Naing Win",
+    role: "Chief Executive Officer",
+    quote: "Our vision is to empower students to achieve their dreams of studying abroad.",
+  },
+  // Direct OES contact numbers (Viber).
+  phones: ["09 787 301 595", "09 268 606 122"],
+  // Service names from meec.edu.mm/oes; descriptions are concise summaries.
   services: [
     {
       title: "Study abroad counselling",
@@ -313,23 +321,19 @@ export const oes = {
     { image: "/meec/oes/photo-2.png", name: "ERC Institute", country: "Singapore" },
     { image: "/meec/oes/photo-3.png", name: "James Cook University", country: "Singapore" },
   ],
-  europeNations: [
-    "Bulgaria",
-    "Croatia",
-    "Czech Republic",
-    "Germany",
-    "Italy",
-    "Poland",
-    "Romania",
-    "Spain",
-    "Turkey",
-    "Ukraine",
-  ],
+  // Medical-school destinations (20+ countries; highlights from meec.edu.mm/oes).
+  medicalCountries: ["Bulgaria", "Croatia", "Hungary", "Italy", "Poland", "Romania", "Spain", "China"],
   levels: ["Foundation", "Diploma", "Bachelor's", "Master's", "PhD"],
   partnerNote:
-    "Partnered with universities across Malaysia and Thailand, plus the Medical Education Guild for medical pathways in Europe, Asia, and the Caribbean.",
+    "Partnered with 13+ universities across Malaysia and Thailand, plus medical-school pathways in 20+ countries.",
   medicalGuild:
-    "Through the Medical Education Guild, we offer pathways to medical universities across Europe, Asia, and the Caribbean.",
+    "We also offer pathways to medical universities across 20+ countries, including:",
+  // OES team (from meec.edu.mm/oes).
+  team: [
+    { name: "Dr. Tin Tin Mar", role: "Business Development Director" },
+    { name: "Ms. Nandar Htun", role: "Operation Manager" },
+    { name: "Ms. Hsu Hsu Aung", role: "Customer Relationship Manager" },
+  ],
   // Featured partners with logos.
   partners: [
     { name: "SEGi University", country: "Malaysia", image: "/meec/oes/uni-segi.jpg" },
