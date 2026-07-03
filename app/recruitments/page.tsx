@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SiteShell from "@/components/SiteShell";
+import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
 import { recruitment, site } from "@/lib/content";
@@ -14,31 +15,22 @@ export const metadata: Metadata = {
 export default function RecruitmentsPage() {
   return (
     <SiteShell>
-      {/* Banner */}
-      <section className="relative">
-        <div className="relative w-full overflow-hidden">
-          <Image
-            src={recruitment.banner}
-            alt="MEEC Recruitments"
-            width={2560}
-            height={888}
-            priority
-            sizes="100vw"
-            className="w-full object-cover"
-          />
-        </div>
-      </section>
+      <PageHero
+        breadcrumb="Recruitments"
+        eyebrow="Join MEEC"
+        title="Recruitments & outreach"
+        subtitle="Connecting with students, sharing opportunities, and helping them make informed choices for their journey."
+        image="/meec/recruitments/r4.webp"
+      />
 
       {/* Introduction */}
-      <section className="py-16 md:py-24">
+      <section className="py-20 md:py-28">
         <div className="mx-auto max-w-4xl px-5">
           <Reveal>
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
-              Introduction
-            </p>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">Introduction</p>
           </Reveal>
           <Reveal delay={0.06}>
-            <blockquote className="mt-6 border-l-4 border-accent pl-6 font-display text-lg leading-relaxed text-ink/90 italic md:text-xl">
+            <blockquote className="mt-6 border-l-4 border-accent pl-6 font-display text-lg italic leading-relaxed text-ink/90 md:text-xl">
               {recruitment.intro}
             </blockquote>
           </Reveal>
@@ -56,7 +48,7 @@ export default function RecruitmentsPage() {
               {/* Text */}
               <div className={si % 2 === 1 ? "md:order-2" : ""}>
                 <Reveal>
-                  <h2 className="font-display text-2xl font-medium leading-tight text-ink md:text-3xl">
+                  <h2 className="font-display text-3xl font-medium leading-tight text-ink md:text-4xl">
                     {section.title}
                   </h2>
                 </Reveal>
@@ -107,7 +99,7 @@ export default function RecruitmentsPage() {
       <section className="bg-primary-soft py-16 md:py-24">
         <div className="mx-auto max-w-3xl px-5">
           <Reveal>
-            <h2 className="text-center font-display text-2xl font-medium leading-tight text-ink md:text-3xl">
+            <h2 className="text-center font-display text-3xl font-medium leading-tight text-ink md:text-4xl">
               What you&rsquo;ll gain
             </h2>
           </Reveal>
