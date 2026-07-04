@@ -60,6 +60,14 @@ input:focus-visible {
   border-radius: 4px;
 }
 
+/* Hide native play button on iOS Safari (e.g. in Low Power Mode) */
+video::-webkit-media-controls {
+  display: none !important;
+}
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
 /* ---- Motion utilities ---- */
 @keyframes meec-marquee {
   from { transform: translateX(0); }
