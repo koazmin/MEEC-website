@@ -20,22 +20,22 @@ export default function FlightPath({ className = "" }: { className?: string }) {
           {/* Mask that draws the line over time */}
           <mask id="path-mask">
             <motion.path
-              d="M -100 800 Q 300 200, 700 500 T 1200 100"
+              d="M -50 800 Q 300 200, 700 500 T 1100 100"
               fill="none"
               stroke="white"
               strokeWidth="10"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 45, ease: "linear", repeat: Infinity }}
+              transition={{ duration: 15, ease: "linear", repeat: Infinity }}
             />
           </mask>
 
           {/* ================= ROUTE 1 ================= */}
-          <path id="route-1" d="M -100 800 Q 300 200, 700 500 T 1200 100" fill="none" />
+          <path id="route-1" d="M -50 800 Q 300 200, 700 500 T 1100 100" fill="none" />
           
           {/* Dotted Track that reveals itself using the mask */}
           <path
-            d="M -100 800 Q 300 200, 700 500 T 1200 100"
+            d="M -50 800 Q 300 200, 700 500 T 1100 100"
             fill="none"
             stroke="var(--color-primary)"
             strokeWidth="3"
@@ -47,8 +47,8 @@ export default function FlightPath({ className = "" }: { className?: string }) {
           {/* Airplane 1 */}
           <g fill="var(--color-primary)">
             {/* Airplane path rotated and translated forward so it covers the tip of the dotted line */}
-            <path d={airplanePath} transform="translate(15, -12) rotate(90) scale(1.5)" />
-            <animateMotion dur="45s" repeatCount="indefinite" rotate="auto">
+            <path d={airplanePath} transform="translate(30, -12) rotate(90) scale(1.5)" />
+            <animateMotion dur="15s" repeatCount="indefinite" rotate="auto">
               <mpath href="#route-1" />
             </animateMotion>
           </g>
