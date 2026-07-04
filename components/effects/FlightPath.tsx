@@ -1,21 +1,31 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 export default function FlightPath({ className = "" }: { className?: string }) {
-  const ref = useRef(null);
-  // Trigger when 10% of the section is visible. once: false if we want it to repeat, but once: true is safer.
-  const isInView = useInView(ref, { once: true, margin: "-10%" });
+  const containerRef = useRef<HTMLDivElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
+  
+  // Trigger when 10% of the section is visible.
+  const isInView = useInView(containerRef, { once: true, margin: "-10%" });
+
+  // Reset the SVG SMIL timeline to 0 when the component comes into view.
+  // This perfectly synchronizes the native <animateMotion> with Framer Motion's JS timeline.
+  useEffect(() => {
+    if (isInView && svgRef.current && svgRef.current.setCurrentTime) {
+      svgRef.current.setCurrentTime(0);
+    }
+  }, [isInView]);
 
   // A much better, clearer airplane shape (points UP by default, centered roughly at 12,15)
   const airplanePath = "M 12.000 0.000 C 13.657 0.000 15.000 1.343 15.000 3.000 L 15.000 10.000 L 24.000 15.000 L 24.000 18.000 L 15.000 15.000 L 15.000 23.000 L 18.000 26.000 L 18.000 29.000 L 12.000 27.000 L 6.000 29.000 L 6.000 26.000 L 9.000 23.000 L 9.000 15.000 L 0.000 18.000 L 0.000 15.000 L 9.000 10.000 L 9.000 3.000 C 9.000 1.343 10.343 0.000 12.000 0.000 Z";
 
   return (
-    <div ref={ref} className={`pointer-events-none absolute inset-0 z-20 overflow-hidden ${className}`}>
+    <div ref={containerRef} className={`pointer-events-none absolute inset-0 z-20 overflow-hidden ${className}`}>
       {/* Decorative airplane routes across the screen */}
       {isInView && (
-        <svg className="absolute inset-0 h-[120%] w-[120%] -left-[10%] -top-[10%] opacity-80" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+        <svg ref={svgRef} className="absolute inset-0 h-[120%] w-[120%] -left-[10%] -top-[10%] opacity-80" viewBox="0 0 1000 1000" preserveAspectRatio="none">
           
           {/* Mask that draws the line over time */}
           <mask id="path-mask">
@@ -46,8 +56,8 @@ export default function FlightPath({ className = "" }: { className?: string }) {
 
           {/* Airplane 1 */}
           <g fill="var(--color-primary)">
-            {/* Airplane path rotated and translated forward so it covers the tip of the dotted line */}
-            <path d={airplanePath} transform="translate(30, -12) rotate(90) scale(1.5)" />
+            {/* Translate slightly forward so the airplane's nose covers the tip of the dotted line */}
+            <path d={airplanePath} transform="translate(15, -12) rotate(90) scale(1.5)" />
             <animateMotion dur="15s" repeatCount="indefinite" rotate="auto">
               <mpath href="#route-1" />
             </animateMotion>
