@@ -16,12 +16,13 @@ export default function SakuraDrift() {
 
   useEffect(() => {
     const generatePetals = () => {
-      const newPetals = Array.from({ length: 20 }).map((_, i) => ({
+      // Increased count for better visibility
+      const newPetals = Array.from({ length: 45 }).map((_, i) => ({
         id: i,
         x: Math.random() * 100, // starting X percentage
         delay: Math.random() * 10,
         duration: 10 + Math.random() * 15,
-        scale: 0.4 + Math.random() * 0.6,
+        scale: 0.5 + Math.random() * 0.7,
       }));
       setPetals(newPetals);
     };
@@ -37,7 +38,7 @@ export default function SakuraDrift() {
           animate={{
             top: "110%",
             left: `${petal.x - 20 + Math.random() * 40}%`, // drift sideways
-            opacity: [0, 0.8, 0.8, 0],
+            opacity: [0, 1, 1, 0],
             rotate: 360,
           }}
           transition={{
@@ -46,9 +47,25 @@ export default function SakuraDrift() {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute h-3 w-4 rounded-tl-full rounded-br-full bg-pink-300/40 shadow-[0_0_10px_rgba(251,207,232,0.3)] backdrop-blur-sm"
-          style={{ scale: petal.scale }}
-        />
+          className="absolute drop-shadow-sm"
+          style={{ scale: petal.scale, width: "24px", height: "30px" }}
+        >
+          {/* Realistic Sakura Petal SVG with cleft and gradient */}
+          <svg viewBox="0 0 30 35" xmlns="http://www.w3.org/2000/svg" className="h-full w-full">
+            <defs>
+              <linearGradient id={`sakuraGrad-${petal.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#fff0f3" />
+                <stop offset="50%" stopColor="#ffb3c6" />
+                <stop offset="100%" stopColor="#ff8fab" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M 15 35 C 25 28, 30 15, 26 5 C 23 -1, 17 5, 15 8 C 13 5, 7 -1, 4 5 C 0 15, 5 28, 15 35 Z"
+              fill={`url(#sakuraGrad-${petal.id})`}
+              opacity="0.85"
+            />
+          </svg>
+        </motion.div>
       ))}
     </div>
   );
