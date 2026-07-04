@@ -8,14 +8,23 @@ type PageHeroProps = {
   subtitle?: string;
   breadcrumb: string;
   image?: string;
+  /** Slowly zoom/pan the background image for a cinematic feel. */
+  kenBurns?: boolean;
 };
 
-export default function PageHero({ eyebrow, title, subtitle, breadcrumb, image }: PageHeroProps) {
+export default function PageHero({ eyebrow, title, subtitle, breadcrumb, image, kenBurns }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden bg-primary-deep pb-14 pt-28 text-white md:pb-20 md:pt-36">
       {image && (
         <div aria-hidden className="absolute inset-0">
-          <Image src={image} alt="" fill priority sizes="100vw" className="object-cover" />
+          <Image
+            src={image}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className={`object-cover ${kenBurns ? "animate-ken-burns" : ""}`}
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-primary-deep via-primary-deep/90 to-primary-deep/55" />
         </div>
       )}

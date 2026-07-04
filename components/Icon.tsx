@@ -1,6 +1,14 @@
 type IconProps = { name: string; className?: string };
 
 const paths: Record<string, React.ReactNode> = {
+  anchor: (
+    <>
+      <circle cx="12" cy="5" r="2" />
+      <path d="M12 7v14" />
+      <path d="M5 12H3a9 9 0 0 0 18 0h-2" />
+      <path d="M8 10h8" />
+    </>
+  ),
   award: (
     <>
       <circle cx="12" cy="9" r="6" />

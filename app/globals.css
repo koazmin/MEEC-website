@@ -87,6 +87,24 @@ video::-webkit-media-controls-start-playback-button {
 @keyframes meec-spin-slow {
   to { transform: rotate(360deg); }
 }
+@keyframes meec-wave {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes meec-ken-burns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.12) translate(-1.5%, -1.5%); }
+}
+
+.animate-wave {
+  animation: meec-wave 18s linear infinite;
+}
+.animate-wave-slow {
+  animation: meec-wave 30s linear infinite;
+}
+.animate-ken-burns {
+  animation: meec-ken-burns 22s ease-in-out infinite alternate;
+}
 
 .animate-marquee {
   animation: meec-marquee 32s linear infinite;
@@ -129,7 +147,10 @@ video::-webkit-media-controls-start-playback-button {
   .animate-marquee,
   .animate-float,
   .animate-float-x,
-  .animate-spin-slow {
+  .animate-spin-slow,
+  .animate-wave,
+  .animate-wave-slow,
+  .animate-ken-burns {
     animation: none !important;
   }
   .shine:hover::after {
