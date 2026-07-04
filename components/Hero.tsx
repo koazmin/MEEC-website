@@ -32,8 +32,12 @@ export default function Hero() {
 
   return (
     <>
-      {/* 1 — Video band (standalone) */}
-      <section ref={ref} className="relative h-screen min-h-[420px] w-full overflow-hidden">
+      {/* 1 — Video band (standalone). On phones use a 16:9 height so the
+          landscape video's centred "MEEC" text is never cropped; full height on desktop. */}
+      <section
+        ref={ref}
+        className="relative w-full overflow-hidden aspect-video md:h-screen md:min-h-[520px] md:aspect-auto"
+      >
         <motion.div style={{ y: bgY, scale: bgScale }} className="absolute inset-0 will-change-transform">
           <Image
             src={hero.poster}
