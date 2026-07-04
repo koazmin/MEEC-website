@@ -36,7 +36,7 @@ export default function Hero() {
           landscape video's centred "MEEC" text is never cropped; full height on desktop. */}
       <section
         ref={ref}
-        className="relative w-full overflow-hidden aspect-video md:h-screen md:min-h-[520px] md:aspect-auto"
+        className="relative w-full overflow-hidden h-[280px] sm:h-[360px] md:h-screen md:min-h-[520px]"
       >
         <motion.div style={{ y: bgY, scale: bgScale }} className="absolute inset-0 will-change-transform">
           <Image
