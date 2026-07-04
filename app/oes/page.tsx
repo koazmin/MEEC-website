@@ -8,6 +8,8 @@ import Icon from "@/components/Icon";
 import PartnersGrid from "@/components/PartnersGrid";
 import { oes } from "@/lib/content";
 
+import FlightPath from "@/components/effects/FlightPath";
+
 export const metadata: Metadata = {
   title: "OES — overseas education services | MEEC",
   description: oes.mission,
@@ -75,8 +77,9 @@ export default function OesPage() {
       </section>
 
       {/* Destinations + levels */}
-      <section className="py-20 md:py-24">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-2">
+      <section className="relative overflow-hidden py-20 md:py-24">
+        <FlightPath />
+        <div className="relative z-10 mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-2">
           <Reveal>
             <div className="rounded-[var(--radius-card)] border border-line bg-surface p-8">
               <h3 className="font-display text-xl font-medium text-ink">Study destinations</h3>

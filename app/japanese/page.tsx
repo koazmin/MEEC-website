@@ -7,6 +7,9 @@ import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
 import { japanese } from "@/lib/content";
 
+import SakuraDrift from "@/components/effects/SakuraDrift";
+import BrushStroke from "@/components/effects/BrushStroke";
+
 export const metadata: Metadata = {
   title: "Japanese language classes — MEEC",
   description: japanese.intro,
@@ -28,8 +31,9 @@ export default function JapanesePage() {
         <div className="mx-auto max-w-6xl px-5">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">What we offer</p>
-            <h2 className="mt-3 font-display text-3xl font-medium leading-tight text-ink md:text-4xl">
+            <h2 className="relative mt-3 inline-block font-display text-3xl font-medium leading-tight text-ink md:text-4xl">
               From your first word to working in Japan
+              <BrushStroke className="opacity-40" />
             </h2>
           </Reveal>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -49,8 +53,9 @@ export default function JapanesePage() {
       </section>
 
       {/* JLPT ladder */}
-      <section className="bg-primary-deep py-20 text-white md:py-24">
-        <div className="mx-auto max-w-6xl px-5">
+      <section className="relative overflow-hidden bg-primary-deep py-20 text-white md:py-24">
+        <SakuraDrift />
+        <div className="relative z-10 mx-auto max-w-6xl px-5">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent-soft">JLPT preparation</p>
             <h2 className="mt-3 font-display text-3xl font-medium md:text-4xl">Prepare for every level</h2>

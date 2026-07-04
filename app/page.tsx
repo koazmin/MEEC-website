@@ -14,6 +14,7 @@ import FloatingContact from "@/components/FloatingContact";
 import Parallax from "@/components/Parallax";
 import Tilt from "@/components/Tilt";
 import AnimatedHeading from "@/components/AnimatedHeading";
+import AuroraGlow from "@/components/effects/AuroraGlow";
 import {
   site,
   stats,
@@ -75,14 +76,7 @@ export default function Home() {
 
         {/* Vision / Mission */}
         <section id="about" className="relative scroll-mt-20 overflow-hidden py-20 md:py-28">
-          <div
-            aria-hidden
-            className="animate-float pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-primary-soft/60 blur-3xl"
-          />
-          <div
-            aria-hidden
-            className="animate-float-x pointer-events-none absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-accent-soft/50 blur-3xl"
-          />
+          <AuroraGlow />
           <div className="relative mx-auto max-w-6xl px-5">
             <div className="grid items-center gap-10 md:grid-cols-2">
               <Parallax distance={36}>

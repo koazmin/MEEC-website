@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Icon from "./Icon";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -43,6 +44,8 @@ export default function SubscribeForm() {
     }
   }
 
+  const inputClasses = "h-12 w-full rounded-xl border-0 bg-white px-4 text-base text-ink placeholder:text-muted/70 transition-all focus:outline-none focus:ring-4 focus:ring-accent/40";
+
   return (
     <form className="mt-6 grid w-full max-w-md gap-3" onSubmit={onSubmit}>
       <div className="grid gap-3 sm:grid-cols-2">
@@ -57,7 +60,7 @@ export default function SubscribeForm() {
             required
             autoComplete="name"
             placeholder="Your name"
-            className="h-12 w-full rounded-xl border-0 bg-white px-4 text-base text-ink placeholder:text-muted/70"
+            className={inputClasses}
           />
         </div>
         <div>
@@ -72,7 +75,7 @@ export default function SubscribeForm() {
             autoComplete="email"
             inputMode="email"
             placeholder="your@email.com"
-            className="h-12 w-full rounded-xl border-0 bg-white px-4 text-base text-ink placeholder:text-muted/70"
+            className={inputClasses}
           />
         </div>
       </div>
@@ -84,27 +87,59 @@ export default function SubscribeForm() {
         name="subject"
         type="text"
         placeholder="Subject"
-        className="h-12 w-full rounded-xl border-0 bg-white px-4 text-base text-ink placeholder:text-muted/70"
+        className={inputClasses}
       />
-      <button
+      
+      <motion.button
         type="submit"
         disabled={status === "sending" || status === "sent"}
-        className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-accent px-6 text-base font-semibold text-primary-deep transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-70"
+        whileTap={status === "idle" || status === "error" ? { scale: 0.95 } : {}}
+        className={`relative inline-flex h-12 items-center justify-center gap-2 overflow-hidden rounded-full px-6 text-base font-semibold transition-colors ${
+          status === "sent" ? "bg-white text-primary-deep" : "bg-accent text-primary-deep hover:bg-accent-soft"
+        } disabled:opacity-70`}
       >
-        {status === "sending" ? "Sending…" : status === "sent" ? "Inquiry sent" : "Send inquiry"}
-        <Icon name={status === "sent" ? "shield" : "send"} className="h-4 w-4" />
-      </button>
+        <AnimatePresence mode="wait">
+          {status === "sending" ? (
+            <motion.span key="sending" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}>
+              Sending…
+            </motion.span>
+          ) : status === "sent" ? (
+            <motion.span key="sent" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="flex items-center gap-2">
+              Inquiry sent
+              <Icon name="check" className="h-4 w-4" />
+            </motion.span>
+          ) : (
+            <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+              Send inquiry
+              <Icon name="send" className="h-4 w-4" />
+            </motion.span>
+          )}
+        </AnimatePresence>
+      </motion.button>
 
-      {status === "sent" && (
-        <p role="status" aria-live="polite" className="text-sm text-white/90">
-          Thanks — we&rsquo;ve received your inquiry and will be in touch shortly.
-        </p>
-      )}
-      {status === "error" && (
-        <p role="alert" className="text-sm text-accent-soft">
-          {message}
-        </p>
-      )}
+      <AnimatePresence>
+        {status === "sent" && (
+          <motion.p 
+            initial={{ opacity: 0, height: 0 }} 
+            animate={{ opacity: 1, height: "auto" }} 
+            role="status" 
+            aria-live="polite" 
+            className="text-sm text-white/90"
+          >
+            Thanks — we&rsquo;ve received your inquiry and will be in touch shortly.
+          </motion.p>
+        )}
+        {status === "error" && (
+          <motion.p 
+            initial={{ opacity: 0, height: 0 }} 
+            animate={{ opacity: 1, height: "auto" }}
+            role="alert" 
+            className="text-sm text-accent-soft"
+          >
+            {message}
+          </motion.p>
+        )}
+      </AnimatePresence>
     </form>
   );
 }

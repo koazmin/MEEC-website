@@ -8,6 +8,8 @@ import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
 import { igcseTracks, igcseCoreSubjects, gedScoring, diplomas, programAccreditation } from "@/lib/content";
 
+import PathwayConnectors from "@/components/effects/PathwayConnectors";
+
 export const metadata: Metadata = {
   title: "Our programs — MEEC",
   description:
@@ -57,8 +59,9 @@ export default function ProgramsPage() {
       </section>
 
       {/* Entry requirements */}
-      <section className="bg-surface py-20 md:py-24">
-        <div className="mx-auto max-w-4xl px-5">
+      <section className="relative overflow-hidden bg-surface py-20 md:py-24">
+        <PathwayConnectors />
+        <div className="relative z-10 mx-auto max-w-4xl px-5">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">Entry requirements</p>
             <h2 className="mt-3 font-display text-3xl font-medium leading-tight text-ink md:text-4xl">

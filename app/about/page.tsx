@@ -4,6 +4,7 @@ import SiteShell from "@/components/SiteShell";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
+import TimelineReveal from "@/components/effects/TimelineReveal";
 import { aboutIntro, vision, mission, missionPillars, coreValues, leadership, teachingApproach } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -55,16 +56,20 @@ export default function AboutPage() {
             </h2>
             <p className="mt-4 max-w-3xl text-lg text-muted">{mission}</p>
           </Reveal>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2">
-            {missionPillars.map((p, i) => (
-              <Reveal key={p.title} delay={i * 0.06}>
-                <div className="h-full rounded-[var(--radius-card)] border border-line bg-paper p-6">
-                  <span className="font-display text-xl text-accent">0{i + 1}</span>
-                  <h3 className="mt-2 font-medium text-ink">{p.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted">{p.body}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="mt-14">
+            <TimelineReveal>
+              <div className="grid gap-5 sm:grid-cols-2">
+                {missionPillars.map((p, i) => (
+                  <Reveal key={p.title} delay={i * 0.06}>
+                    <div className="h-full rounded-[var(--radius-card)] border border-line bg-paper p-6">
+                      <span className="font-display text-xl text-accent">0{i + 1}</span>
+                      <h3 className="mt-2 font-medium text-ink">{p.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-muted">{p.body}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </TimelineReveal>
           </div>
         </div>
       </section>
@@ -104,9 +109,9 @@ export default function AboutPage() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {leadership.map((person, i) => (
               <Reveal key={person.name} delay={i * 0.06}>
-                <figure className="h-full rounded-[var(--radius-card)] border border-line bg-surface p-7">
+                <figure className="group h-full rounded-[var(--radius-card)] border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-2 hover:border-primary hover:shadow-[0_20px_40px_-20px_rgba(15,110,86,0.3)]">
                   <div className="flex items-center gap-5">
-                    <span className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full bg-primary-soft ring-2 ring-primary-soft">
+                    <span className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full bg-primary-soft ring-2 ring-primary-soft transition-transform duration-500 group-hover:scale-105 group-hover:ring-primary/40">
                       <Image
                         src={person.photo}
                         alt={person.name}
@@ -116,11 +121,11 @@ export default function AboutPage() {
                       />
                     </span>
                     <div>
-                      <p className="text-lg font-medium text-ink">{person.name}</p>
+                      <p className="text-lg font-medium text-ink transition-colors duration-300 group-hover:text-primary">{person.name}</p>
                       <p className="text-sm text-muted">{person.role}</p>
                     </div>
                   </div>
-                  <blockquote className="mt-5 font-display text-lg italic leading-snug text-ink/85">
+                  <blockquote className="mt-5 font-display text-lg italic leading-snug text-ink/85 transition-colors duration-300 group-hover:text-ink">
                     &ldquo;{person.quote}&rdquo;
                   </blockquote>
                 </figure>
