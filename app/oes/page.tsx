@@ -5,6 +5,7 @@ import SiteShell from "@/components/SiteShell";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
+import PartnersGrid from "@/components/PartnersGrid";
 import { oes } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -132,40 +133,13 @@ export default function OesPage() {
             ))}
           </div>
 
-          {/* Full partner list by country */}
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {oes.partnersByCountry.map((group, gi) => (
-              <Reveal key={group.country} delay={gi * 0.08}>
-                <div className="h-full rounded-[var(--radius-card)] border border-line bg-paper p-6">
-                  <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary">{group.country}</p>
-                  <ul className="mt-3 space-y-1.5">
-                    {group.universities.map((u) => (
-                      <li key={u} className="flex items-start gap-2 text-[15px] text-muted">
-                        <Icon name="cap" className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                        {u}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          {/* Medical Education Guild */}
-          <Reveal delay={0.1}>
-            <div className="mt-6 rounded-[var(--radius-card)] border border-line bg-primary-soft/40 p-6">
-              <p className="text-sm font-semibold text-primary-deep">Medical Education Guild</p>
-              <p className="mt-2 text-[15px] leading-relaxed text-muted">{oes.medicalGuild}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {oes.medicalCountries.map((n) => (
-                  <span key={n} className="rounded-full bg-surface px-3 py-1 text-xs font-medium text-primary-deep">
-                    {n}
-                  </span>
-                ))}
-                <span className="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted">+ more</span>
-              </div>
-            </div>
+          {/* Interactive partner grid — click a card for fees, rankings & programs */}
+          <Reveal delay={0.08}>
+            <p className="mt-8 text-sm text-muted">
+              Tap any partner to see tuition fees, living costs, rankings, and the full program list.
+            </p>
           </Reveal>
+          <PartnersGrid />
         </div>
       </section>
 

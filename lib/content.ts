@@ -321,13 +321,9 @@ export const oes = {
     { image: "/meec/oes/photo-2.png", name: "ERC Institute", country: "Singapore" },
     { image: "/meec/oes/photo-3.png", name: "James Cook University", country: "Singapore" },
   ],
-  // Medical-school destinations (20+ countries; highlights from meec.edu.mm/oes).
-  medicalCountries: ["Bulgaria", "Croatia", "Hungary", "Italy", "Poland", "Romania", "Spain", "China"],
   levels: ["Foundation", "Diploma", "Bachelor's", "Master's", "PhD"],
   partnerNote:
     "Partnered with 13+ universities across Malaysia and Thailand, plus medical-school pathways in 20+ countries.",
-  medicalGuild:
-    "We also offer pathways to medical universities across 20+ countries, including:",
   // OES team (from meec.edu.mm/oes).
   team: [
     { name: "Dr. Tin Tin Mar", role: "Business Development Director" },
@@ -340,28 +336,276 @@ export const oes = {
     { name: "City University", country: "Malaysia", image: "/meec/oes/uni-city.jpg" },
     { name: "North-Chiang Mai University", country: "Thailand", image: "/meec/oes/uni-chiangmai.jpg" },
   ],
-  // Full partner list by country.
-  partnersByCountry: [
+  // Per-university details from the meec.edu.mm/oes partner popups.
+  partnerDetails: [
     {
+      name: "SEGi University",
       country: "Malaysia",
-      universities: [
-        "SEGi University",
-        "Assumption University",
-        "INTI University",
-        "City University",
-        "Asia Pacific University (APU)",
-        "Sunway University",
-        "Taylor's University",
+      facts: [
+        "Tuition fees — around about 285 L / 1 year",
+        "Living cost — around about 200 L / 10 months",
+        "Rank 731–740 (World University Rankings)",
+      ],
+      programs: [
+        { label: "Foundation", items: ["Science", "Art"] },
+        {
+          label: "Bachelor",
+          items: [
+            "Medicine",
+            "Business",
+            "Accounting and Management",
+            "Communication and Creative Design",
+            "Hospitality and Tourism",
+            "Education",
+            "IT",
+            "Engineering",
+            "The Built Environment",
+          ],
+        },
       ],
     },
     {
+      name: "Assumption University",
       country: "Thailand",
-      universities: [
-        "North-Chiang Mai University",
-        "Kasem Bundit University",
-        "Raffles International College (Bangkok)",
-        "Pathumthani University",
-        "Charansanitwong Technological College",
+      facts: [
+        "Tuition fees — around about 110 L / 1 year",
+        "Living cost — around about 150 L / 1 year",
+        "Rank — 2859 (World University Rankings)",
+      ],
+      programs: [
+        {
+          label: "Programs",
+          items: [
+            "Management & Economics",
+            "Arts (Business English, French, Chinese, Japanese)",
+            "Music",
+            "Science & Technology",
+            "Architecture & Interior Design",
+            "Nursing Science",
+            "Digital Communication",
+            "Food Technology",
+            "Computer Science",
+            "Computer Engineering",
+            "Mechatronics Engineering & Artificial Intelligence",
+            "Aeronautic Engineering",
+          ],
+        },
+      ],
+    },
+    {
+      name: "INTI University",
+      country: "Malaysia",
+      facts: [
+        "Tuition fees — Diploma RM 18,000–25,000 / year · Bachelor RM 22,000–81,000 / year",
+        "Living cost — RM 1,000–4,000 / month",
+        "Rank 509 (World University Ranking 2026)",
+      ],
+      programs: [
+        {
+          label: "Programs",
+          items: [
+            "Accounting & Finance",
+            "Art & Design",
+            "Biotechnology & Life Sciences",
+            "Business & Administration",
+            "Computer Science & IT",
+            "Engineering",
+            "Hospitality & Culinary Arts",
+            "Mass Communication & Media",
+            "Pre-University & Foundation Programs",
+          ],
+        },
+      ],
+    },
+    {
+      name: "City University",
+      country: "Malaysia",
+      facts: [
+        "Tuition fees — around about 285 L / 1 year",
+        "Living cost — around about 200 L / 10 months",
+        "Rank 352 (London University) · Top 1000 (Malaysia University)",
+      ],
+      programs: [
+        {
+          label: "Foundation",
+          items: [
+            "Life Science",
+            "Graphic Design & Multimedia",
+            "Business",
+            "Built Environment",
+            "Communication",
+            "Fashion Design",
+            "English",
+            "Physical Science",
+            "IT",
+          ],
+        },
+        {
+          label: "Diploma",
+          items: ["Business", "Fashion Design", "Early Childhood", "Engineering", "Nursing", "Hotel Management"],
+        },
+        {
+          label: "Bachelor",
+          items: [
+            "Business",
+            "Fashion Design",
+            "Early Childhood",
+            "Engineering",
+            "Nursing",
+            "Hotel Management",
+            "Computer Science",
+            "IT",
+            "Graphic Design",
+            "Science",
+            "Interior Design",
+          ],
+        },
+      ],
+    },
+    {
+      name: "North-Chiang Mai University",
+      country: "Thailand",
+      facts: [
+        "Tuition fees — around about 150 L / 1 year",
+        "Living cost — around about 150 L / 1 year",
+        "Rank 7670 (World University Ranking)",
+      ],
+      programs: [
+        {
+          label: "Bachelor of Business Administration",
+          items: ["Aviation Business and Tourism Management (3 years)", "Management (4 years)"],
+        },
+        { label: "Bachelor of Engineering", items: ["Software Engineering (3 years)"] },
+      ],
+    },
+    {
+      name: "Charansanitwong Technological College",
+      country: "Thailand",
+      programs: [
+        {
+          label: "Foreign Languages & Services Department",
+          items: [
+            "17 specialised two-year English-language programs",
+            "Practical English for Hotel Front Office",
+            "Practical English for Food & Beverage",
+            "Practical English for hospitality and business sectors",
+          ],
+        },
+      ],
+    },
+    {
+      name: "Kasem Bundit University",
+      country: "Thailand (Bangkok)",
+      facts: [
+        "Tuition fees — 132 L / 1 year",
+        "Living cost — around about 150 L / 1 year",
+        "Rank 7068 (World University Rankings) · Rank 6 in Thailand",
+      ],
+      programs: [
+        {
+          label: "Programs",
+          items: [
+            "Management",
+            "Language (English & Thai)",
+            "Fashion Design",
+            "Engineering (Civil & Architecture)",
+            "Scholarship and exchange programs",
+          ],
+        },
+      ],
+    },
+    {
+      name: "Raffles International College",
+      country: "Thailand (Bangkok)",
+      facts: [
+        "Tuition fees — Bachelor's Design around about 300 L / 1 year (3 years)",
+        "Tuition fees — Business around about 300 L / 1 year (4 years)",
+        "Living cost — around about 150 L / 1 year",
+      ],
+      programs: [
+        {
+          label: "Design",
+          items: [
+            "Digital Media",
+            "Video Games",
+            "Graphic",
+            "Fashion",
+            "Interior",
+            "Product",
+            "Fashion Marketing & Management",
+          ],
+        },
+        {
+          label: "Business",
+          items: [
+            "Entrepreneurship and Small Business",
+            "Operation",
+            "Marketing",
+            "Tourism and Hospitality Management",
+            "Supply Chain and Logistics Operation",
+            "MBA",
+          ],
+        },
+      ],
+    },
+    {
+      name: "Pathumthani University",
+      country: "Thailand",
+      facts: [
+        "Tuition fees — around about 150 L / 1 year",
+        "Living cost — around about 150 L / 1 year",
+        "Rank 10161 (World University Rankings)",
+      ],
+      programs: [
+        {
+          label: "Bachelor of Business Administration",
+          items: ["Digital Business Management", "Hospitality Industry and Management"],
+        },
+        { label: "Bachelor of Education", items: ["Early Childhood Education"] },
+      ],
+    },
+    {
+      name: "Medical Education Guild",
+      country: "Medical pathways",
+      programs: [
+        {
+          label: "Services",
+          items: [
+            "Comprehensive global healthcare, life science and medical pathway consultations",
+            "Pre-medical & entrance exam preparation",
+            "Medical school academic support",
+            "Ongoing career guidance",
+          ],
+        },
+        {
+          label: "Partner countries",
+          items: [
+            "Armenia",
+            "Barbados",
+            "Bulgaria",
+            "Croatia",
+            "Cyprus",
+            "Czech Republic",
+            "Estonia",
+            "Georgia",
+            "Grenada",
+            "Hungary",
+            "Italy",
+            "Latvia",
+            "Lithuania",
+            "Malta",
+            "Moldova",
+            "Poland",
+            "Romania",
+            "Germany",
+            "Serbia",
+            "Slovakia",
+            "Spain",
+            "Turkey",
+            "Ukraine",
+            "China",
+          ],
+        },
       ],
     },
   ],
