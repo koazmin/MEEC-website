@@ -341,6 +341,7 @@ export const oes = {
     {
       name: "SEGi University",
       country: "Malaysia",
+      logo: "/meec/oes/logos/segi.webp",
       facts: [
         "Tuition fees — around about 285 L / 1 year",
         "Living cost — around about 200 L / 10 months",
@@ -367,6 +368,7 @@ export const oes = {
     {
       name: "Assumption University",
       country: "Thailand",
+      logo: "/meec/oes/logos/assumption.webp",
       facts: [
         "Tuition fees — around about 110 L / 1 year",
         "Living cost — around about 150 L / 1 year",
@@ -395,6 +397,7 @@ export const oes = {
     {
       name: "INTI University",
       country: "Malaysia",
+      logo: "/meec/oes/logos/inti.webp",
       facts: [
         "Tuition fees — Diploma RM 18,000–25,000 / year · Bachelor RM 22,000–81,000 / year",
         "Living cost — RM 1,000–4,000 / month",
@@ -420,6 +423,7 @@ export const oes = {
     {
       name: "City University",
       country: "Malaysia",
+      logo: "/meec/oes/logos/city.webp",
       facts: [
         "Tuition fees — around about 285 L / 1 year",
         "Living cost — around about 200 L / 10 months",
@@ -465,6 +469,7 @@ export const oes = {
     {
       name: "North-Chiang Mai University",
       country: "Thailand",
+      logo: "/meec/oes/logos/north-chiangmai.webp",
       facts: [
         "Tuition fees — around about 150 L / 1 year",
         "Living cost — around about 150 L / 1 year",
@@ -481,6 +486,7 @@ export const oes = {
     {
       name: "Charansanitwong Technological College",
       country: "Thailand",
+      logo: "/meec/oes/logos/charansanitwong.png",
       programs: [
         {
           label: "Foreign Languages & Services Department",
@@ -496,6 +502,7 @@ export const oes = {
     {
       name: "Kasem Bundit University",
       country: "Thailand (Bangkok)",
+      logo: "/meec/oes/logos/kasem-bundit.webp",
       facts: [
         "Tuition fees — 132 L / 1 year",
         "Living cost — around about 150 L / 1 year",
@@ -517,6 +524,7 @@ export const oes = {
     {
       name: "Raffles International College",
       country: "Thailand (Bangkok)",
+      logo: "/meec/oes/logos/raffles.webp",
       facts: [
         "Tuition fees — Bachelor's Design around about 300 L / 1 year (3 years)",
         "Tuition fees — Business around about 300 L / 1 year (4 years)",
@@ -551,6 +559,7 @@ export const oes = {
     {
       name: "Pathumthani University",
       country: "Thailand",
+      logo: "/meec/oes/logos/pathumthani.webp",
       facts: [
         "Tuition fees — around about 150 L / 1 year",
         "Living cost — around about 150 L / 1 year",
@@ -567,6 +576,7 @@ export const oes = {
     {
       name: "Medical Education Guild",
       country: "Medical pathways",
+      logo: "/meec/oes/logos/medical-guild.webp",
       programs: [
         {
           label: "Services",
