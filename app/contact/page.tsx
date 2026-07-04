@@ -11,7 +11,8 @@ export const metadata: Metadata = {
   description: `Reach MEEC at ${site.address}.`,
 };
 
-const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.address)}&output=embed`;
+const MEEC_PLACE_ID = "ChIJvxRzByaTwTARFz1nXl-4c5I";
+const mapSrc = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.014569750008!2d96.2024232!3d16.8751738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c19326077314bf%3A0x9273b85f5e673d17!2sMahar%20Euphoria%20Education%20Centre!5e0!3m2!1sen!2smm!4v1`;
 
 export default function ContactPage() {
   return (
@@ -84,6 +85,15 @@ export default function ContactPage() {
                   referrerPolicy="no-referrer-when-downgrade"
                   className="h-64 w-full border-0"
                 />
+                <a
+                  href="https://maps.app.goo.gl/uuqRu2DuYy6P2DCo6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 border-t border-line bg-surface px-4 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary-soft"
+                >
+                  <Icon name="pin" className="h-4 w-4" />
+                  View on Google Maps
+                </a>
               </div>
             </div>
           </Reveal>
