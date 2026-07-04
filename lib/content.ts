@@ -277,6 +277,7 @@ export const oes = {
     name: "Dr. Than Naing Win",
     role: "Chief Executive Officer",
     quote: "Our vision is to empower students to achieve their dreams of studying abroad.",
+    photo: "/meec/team/leader-3.webp",
   },
   // Direct OES contact numbers (Viber).
   phones: ["09 787 301 595", "09 268 606 122"],
@@ -324,11 +325,24 @@ export const oes = {
   levels: ["Foundation", "Diploma", "Bachelor's", "Master's", "PhD"],
   partnerNote:
     "Partnered with 13+ universities across Malaysia and Thailand, plus medical-school pathways in 20+ countries.",
-  // OES team (from meec.edu.mm/oes).
+  // OES team (from meec.edu.mm/oes, with their original photos).
   team: [
-    { name: "Dr. Tin Tin Mar", role: "Business Development Director" },
-    { name: "Ms. Nandar Htun", role: "Operation Manager" },
-    { name: "Ms. Hsu Hsu Aung", role: "Customer Relationship Manager" },
+    {
+      name: "Dr. Than Naing Win",
+      role: "Chief Executive Officer",
+      photo: "/meec/team/oes-than-naing-win.webp",
+    },
+    {
+      name: "Dr. Tin Tin Mar",
+      role: "Business Development Director",
+      photo: "/meec/team/oes-tin-tin-mar.webp",
+    },
+    { name: "Ms. Nandar Htun", role: "Operation Manager", photo: "/meec/team/oes-nandar-htun.webp" },
+    {
+      name: "Ms. Hsu Hsu Aung",
+      role: "Customer Relationship Manager",
+      photo: "/meec/team/oes-hsu-hsu-aung.webp",
+    },
   ],
   // Featured partners with logos.
   partners: [

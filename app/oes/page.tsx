@@ -32,13 +32,18 @@ export default function OesPage() {
             <p className="mt-5 font-display text-2xl font-medium leading-snug text-ink md:text-[2rem]">{oes.mission}</p>
           </Reveal>
           <Reveal delay={0.1}>
-            <figure className="mx-auto mt-10 max-w-2xl rounded-[var(--radius-card)] border border-line bg-surface p-7">
-              <blockquote className="font-display text-lg italic leading-snug text-ink/85">
-                &ldquo;{oes.ceo.quote}&rdquo;
-              </blockquote>
-              <figcaption className="mt-4 text-sm text-muted">
-                <span className="font-medium text-ink">{oes.ceo.name}</span> · {oes.ceo.role}
-              </figcaption>
+            <figure className="mx-auto mt-10 flex max-w-2xl flex-col items-center gap-5 rounded-[var(--radius-card)] border border-line bg-surface p-7 text-left sm:flex-row">
+              <span className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full ring-2 ring-primary-soft">
+                <Image src={oes.ceo.photo} alt={oes.ceo.name} fill sizes="96px" className="object-cover" />
+              </span>
+              <div>
+                <blockquote className="font-display text-lg italic leading-snug text-ink/85">
+                  &ldquo;{oes.ceo.quote}&rdquo;
+                </blockquote>
+                <figcaption className="mt-4 text-sm text-muted">
+                  <span className="font-medium text-ink">{oes.ceo.name}</span> · {oes.ceo.role}
+                </figcaption>
+              </div>
             </figure>
           </Reveal>
         </div>
@@ -197,17 +202,19 @@ export default function OesPage() {
               The people behind OES
             </h2>
           </Reveal>
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          <div className="mt-10 grid grid-cols-2 gap-6 lg:grid-cols-4">
             {oes.team.map((person, i) => (
               <Reveal key={person.name} delay={i * 0.08}>
-                <div className="h-full rounded-[var(--radius-card)] border border-line bg-paper p-6 text-center">
-                  <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary-soft font-display text-lg font-medium text-primary-deep">
-                    {person.name
-                      .replace(/^(Dr\.|Mr\.|Ms\.|Mrs\.)\s*/i, "")
-                      .split(" ")
-                      .map((w) => w[0])
-                      .slice(0, 2)
-                      .join("")}
+                <div className="group h-full rounded-[var(--radius-card)] border border-line bg-paper p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_18px_38px_-22px_rgba(15,110,86,0.55)]">
+                  <span className="relative mx-auto block h-28 w-28 overflow-hidden rounded-full ring-2 ring-primary-soft transition-transform duration-300 group-hover:scale-105 md:h-32 md:w-32">
+                    <Image
+                      src={person.photo}
+                      alt={person.name}
+                      fill
+                      loading="lazy"
+                      sizes="128px"
+                      className="object-cover"
+                    />
                   </span>
                   <p className="mt-4 font-medium text-ink">{person.name}</p>
                   <p className="mt-1 text-sm text-muted">{person.role}</p>
