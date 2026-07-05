@@ -1,68 +1,68 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 type Petal = {
   id: number;
-  x: number;
+  left: number;
+  size: number;
   delay: number;
   duration: number;
-  scale: number;
+  sway: number;
+  spin: number;
 };
 
 export default function SakuraDrift() {
+  const reduce = useReducedMotion();
   const [petals, setPetals] = useState<Petal[]>([]);
 
   useEffect(() => {
-    const generatePetals = () => {
-      // Increased count for better visibility
-      const newPetals = Array.from({ length: 45 }).map((_, i) => ({
+    if (reduce) return;
+    setPetals(
+      Array.from({ length: 26 }, (_, i) => ({
         id: i,
-        x: Math.random() * 100, // starting X percentage
-        delay: Math.random() * 10,
-        duration: 10 + Math.random() * 15,
-        scale: 0.5 + Math.random() * 0.7,
-      }));
-      setPetals(newPetals);
-    };
-    generatePetals();
-  }, []);
+        left: Math.random() * 100,
+        size: 12 + Math.random() * 14,
+        delay: Math.random() * 12,
+        duration: 11 + Math.random() * 12,
+        sway: 40 + Math.random() * 70,
+        spin: Math.random() > 0.5 ? 360 : -360,
+      })),
+    );
+  }, [reduce]);
+
+  if (reduce) return null;
 
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {petals.map((petal) => (
+    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      {petals.map((p) => (
         <motion.div
-          key={petal.id}
-          initial={{ top: "-10%", left: `${petal.x}%`, opacity: 0, rotate: 0 }}
+          key={p.id}
+          className="absolute top-0 will-change-transform"
+          style={{ left: `${p.left}%`, width: p.size, height: p.size * 1.15 }}
+          initial={{ y: "-12vh", x: 0, rotate: 0, opacity: 0 }}
           animate={{
-            top: "110%",
-            left: `${petal.x - 20 + Math.random() * 40}%`, // drift sideways
-            opacity: [0, 1, 1, 0],
-            rotate: 360,
+            y: "115vh",
+            x: [0, p.sway, -p.sway * 0.6, p.sway * 0.35, 0],
+            rotate: [0, p.spin * 0.4, p.spin],
+            opacity: [0, 0.9, 0.9, 0],
           }}
-          transition={{
-            duration: petal.duration,
-            delay: petal.delay,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute drop-shadow-sm"
-          style={{ scale: petal.scale, width: "24px", height: "30px" }}
+          transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
         >
-          {/* Realistic Sakura Petal SVG with cleft and gradient */}
-          <svg viewBox="0 0 30 35" xmlns="http://www.w3.org/2000/svg" className="h-full w-full">
+          <svg viewBox="0 0 30 35" className="h-full w-full drop-shadow-[0_2px_3px_rgba(180,80,110,0.25)]">
             <defs>
-              <linearGradient id={`sakuraGrad-${petal.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#fff0f3" />
-                <stop offset="50%" stopColor="#ffb3c6" />
-                <stop offset="100%" stopColor="#ff8fab" />
+              <linearGradient id={`sk-${p.id}`} x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#fff2f6" />
+                <stop offset="55%" stopColor="#ffc2d4" />
+                <stop offset="100%" stopColor="#ff86a8" />
               </linearGradient>
             </defs>
+            {/* Sakura petal with a soft cleft at the tip */}
             <path
-              d="M 15 35 C 25 28, 30 15, 26 5 C 23 -1, 17 5, 15 8 C 13 5, 7 -1, 4 5 C 0 15, 5 28, 15 35 Z"
-              fill={`url(#sakuraGrad-${petal.id})`}
-              opacity="0.85"
+              d="M 15 34 C 24 28 29 15 25 6 C 22 0.5 17 5 15 8 C 13 5 8 0.5 5 6 C 1 15 6 28 15 34 Z"
+              fill={`url(#sk-${p.id})`}
+              opacity="0.92"
             />
           </svg>
         </motion.div>
