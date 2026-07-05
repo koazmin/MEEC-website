@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
@@ -13,9 +13,24 @@ const pathways = ["GED", "IGCSE O' Level", "Secondary", "Diplomas"];
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const reduce = useReducedMotion();
   // Fade the video in once it can play; otherwise the clean poster frame stays.
   const [videoReady, setVideoReady] = useState(false);
+
+  // In-app browsers (Viber, Facebook, Messenger) often ignore the `autoPlay`
+  // attribute and only honour a programmatic play() call. Kick it off on mount
+  // so the video starts on the very first visit instead of waiting for a reload.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v || reduce) return;
+    const start = () => {
+      v.play().then(() => setVideoReady(true)).catch(() => {});
+    };
+    if (v.readyState >= 2) start();
+    else v.addEventListener("loadeddata", start, { once: true });
+    return () => v.removeEventListener("loadeddata", start);
+  }, [reduce]);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -48,6 +63,7 @@ export default function Hero() {
             className="object-cover"
           />
           <video
+            ref={videoRef}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
               videoReady ? "opacity-100" : "opacity-0"
             }`}
@@ -55,8 +71,11 @@ export default function Hero() {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
+            poster={hero.poster}
+            onLoadedData={() => setVideoReady(true)}
             onCanPlay={() => setVideoReady(true)}
+            onPlaying={() => setVideoReady(true)}
             onError={() => setVideoReady(false)}
           >
             <source src={hero.video} type="video/mp4" />
