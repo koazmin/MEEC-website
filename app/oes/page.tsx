@@ -78,8 +78,13 @@ export default function OesPage() {
 
       {/* Destinations + levels */}
       <section className="relative overflow-hidden py-20 md:py-24">
-        <FlightPath />
-        <div className="relative z-10 mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-2">
+        {/* Flight-path banner — a plane charts a route to our study destinations */}
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="relative h-28 md:h-36">
+            <FlightPath />
+          </div>
+        </div>
+        <div className="relative z-10 mx-auto mt-6 grid max-w-6xl gap-10 px-5 md:grid-cols-2">
           <Reveal>
             <div className="rounded-[var(--radius-card)] border border-line bg-surface p-8">
               <h3 className="font-display text-xl font-medium text-ink">Study destinations</h3>
