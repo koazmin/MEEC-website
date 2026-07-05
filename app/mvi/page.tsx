@@ -41,7 +41,7 @@ export default function MviPage() {
                   <span className="pointer-events-none absolute -right-3 -top-4 text-primary-soft/60 transition-transform duration-500 group-hover:scale-110">
                     <Icon name={item.icon} className="h-24 w-24" />
                   </span>
-                  <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-primary to-accent transition-transform duration-500 group-hover:scale-x-100" />
+                  <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-linear-to-r from-primary to-accent transition-transform duration-500 group-hover:scale-x-100" />
                   <p className="relative text-sm font-semibold uppercase tracking-[0.16em] text-accent">{item.label}</p>
                   <p className="relative mt-4 text-lg leading-relaxed text-muted">{item.body}</p>
                 </div>
@@ -101,7 +101,7 @@ export default function MviPage() {
                   </span>
                   <h3 className="relative mt-4 font-medium text-ink">{c.name}</h3>
                   <p className="relative mt-1 text-sm leading-relaxed text-muted">{c.body}</p>
-                  <span className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-primary to-accent transition-transform duration-500 group-hover:scale-x-100" />
+                  <span className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-linear-to-r from-primary to-accent transition-transform duration-500 group-hover:scale-x-100" />
                 </div>
               </Reveal>
             ))}
@@ -127,7 +127,7 @@ export default function MviPage() {
             {mvi.trainerPhotos.map((src, i) => (
               <Reveal key={src} delay={(i % 7) * 0.05}>
                 <div className="group relative mx-auto aspect-square w-full max-w-[130px]">
-                  <span className="absolute -inset-1 rounded-full bg-gradient-to-tr from-accent to-primary opacity-0 blur-[6px] transition-opacity duration-300 group-hover:opacity-70" />
+                  <span className="absolute -inset-1 rounded-full bg-linear-to-tr from-accent to-primary opacity-0 blur-[6px] transition-opacity duration-300 group-hover:opacity-70" />
                   <div className="relative h-full w-full overflow-hidden rounded-full ring-2 ring-white/20 transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105 group-hover:ring-accent">
                     <Image
                       src={src}
@@ -168,7 +168,7 @@ export default function MviPage() {
                       sizes="(max-width:768px) 50vw, 33vw"
                       className="object-cover transition-transform duration-[800ms] ease-out group-hover:scale-110"
                     />
-                    <span className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <span className="absolute inset-0 bg-linear-to-t from-ink/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     <span className="absolute bottom-3 left-3 flex items-center gap-1.5 text-sm font-medium text-white opacity-0 transition-all duration-300 group-hover:opacity-100">
                       <Icon name="anchor" className="h-4 w-4" />
                       MVI campus

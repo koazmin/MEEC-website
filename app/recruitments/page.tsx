@@ -89,7 +89,7 @@ export default function RecruitmentsPage() {
                             sizes="(max-width:768px) 100vw, 46vw"
                             className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
                           />
-                          <span className="absolute inset-0 bg-gradient-to-t from-ink/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                          <span className="absolute inset-0 bg-linear-to-t from-ink/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                         </div>
                       </Tilt>
                     </Reveal>

@@ -98,9 +98,9 @@ export default function Hero() {
             <source src={hero.video} type="video/mp4" />
           </video>
           {/* Top scrim — kept short/soft so it only shades behind the header, not the video body */}
-          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-ink/65 via-ink/20 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-28 bg-linear-to-b from-ink/65 via-ink/20 to-transparent" />
           {/* Bottom fade blends the video into the content section below */}
-          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-paper to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-paper to-transparent" />
         </motion.div>
 
         {/* Decorative brand bars */}

@@ -36,7 +36,7 @@ export default function PartnersGrid() {
             className="group relative flex h-full flex-col items-center justify-start gap-3 overflow-hidden rounded-[var(--radius-card)] border border-line bg-surface p-5 text-center transition-[border-color,box-shadow] duration-300 hover:border-primary hover:shadow-[0_18px_38px_-20px_rgba(15,110,86,0.55)]"
             aria-haspopup="dialog"
           >
-            <span className="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-primary via-accent to-primary transition-transform duration-500 group-hover:scale-x-100" />
+            <span className="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-linear-to-r from-primary via-accent to-primary transition-transform duration-500 group-hover:scale-x-100" />
             <span className="relative mt-1 flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-white ring-1 ring-line transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-2">
               <Image
                 src={p.logo}

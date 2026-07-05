@@ -67,7 +67,7 @@ export default function Programs() {
                   p.featured ? "border-primary bg-primary-soft/40" : "border-line bg-surface"
                 }`}
               >
-                <span className="pointer-events-none absolute inset-x-0 -top-px h-px scale-x-0 bg-gradient-to-r from-transparent via-accent to-transparent transition-transform duration-500 group-hover:scale-x-100" />
+                <span className="pointer-events-none absolute inset-x-0 -top-px h-px scale-x-0 bg-linear-to-r from-transparent via-accent to-transparent transition-transform duration-500 group-hover:scale-x-100" />
                 <div className="flex items-start justify-between">
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-soft text-primary transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
                     <Icon name={trackIcon[p.track]} className="h-5 w-5" />

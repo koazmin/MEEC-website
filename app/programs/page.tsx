@@ -50,7 +50,7 @@ export default function ProgramsPage() {
               sizes="(max-width: 1152px) 100vw, 1152px"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/55 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-ink/55 to-transparent" />
             <p className="absolute bottom-5 left-6 max-w-md font-display text-xl font-medium text-white md:text-2xl">
               Personalised support at every step of your journey.
             </p>

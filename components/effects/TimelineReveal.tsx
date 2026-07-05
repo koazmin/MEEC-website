@@ -21,7 +21,7 @@ export default function TimelineReveal({ children }: { children: React.ReactNode
       {/* Animated gradient progress spine */}
       <motion.div
         style={{ scaleY, originY: 0 }}
-        className="absolute left-[15px] top-0 h-full w-[2px] bg-gradient-to-b from-primary to-accent md:left-1/2 md:-translate-x-1/2"
+        className="absolute left-[15px] top-0 h-full w-[2px] bg-linear-to-b from-primary to-accent md:left-1/2 md:-translate-x-1/2"
       />
 
       {/* Glowing head that travels down with scroll */}
