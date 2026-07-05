@@ -18,18 +18,35 @@ export default function Hero() {
   // Fade the video in once it can play; otherwise the clean poster frame stays.
   const [videoReady, setVideoReady] = useState(false);
 
-  // In-app browsers (Viber, Facebook, Messenger) often ignore the `autoPlay`
-  // attribute and only honour a programmatic play() call. Kick it off on mount
-  // so the video starts on the very first visit instead of waiting for a reload.
+  // In-app browsers (Viber, Facebook, WeChat) often ignore the `autoPlay`
+  // attribute and only honour a programmatic play() call — WeChat additionally
+  // blocks playback until its JS bridge is ready or the user interacts. Kick it
+  // off through every available channel so the clip starts on the first visit.
   useEffect(() => {
     const v = videoRef.current;
     if (!v || reduce) return;
+
     const start = () => {
       v.play().then(() => setVideoReady(true)).catch(() => {});
     };
+
+    // Fire as soon as the first frame is decoded.
     if (v.readyState >= 2) start();
     else v.addEventListener("loadeddata", start, { once: true });
-    return () => v.removeEventListener("loadeddata", start);
+
+    // WeChat gates autoplay behind its own ready event.
+    document.addEventListener("WeixinJSBridgeReady", start);
+
+    // Universal fallback: the first user gesture unlocks playback in any strict
+    // in-app browser. The clip is muted, so a tap or scroll is enough.
+    const gestures = ["touchstart", "click", "scroll"] as const;
+    gestures.forEach((e) => window.addEventListener(e, start, { once: true, passive: true }));
+
+    return () => {
+      v.removeEventListener("loadeddata", start);
+      document.removeEventListener("WeixinJSBridgeReady", start);
+      gestures.forEach((e) => window.removeEventListener(e, start));
+    };
   }, [reduce]);
 
   const { scrollYProgress } = useScroll({
