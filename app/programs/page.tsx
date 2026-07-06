@@ -58,9 +58,9 @@ export default function ProgramsPage() {
         </Reveal>
       </section>
 
-      {/* Entry requirements — horizontal stepper */}
+      {/* Entry requirements — ghost-number step cards */}
       <section className="bg-surface py-20 md:py-24">
-        <div className="mx-auto max-w-6xl px-5">
+        <div className="mx-auto max-w-4xl px-5">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">Entry requirements</p>
             <h2 className="mt-3 font-display text-3xl font-medium leading-tight text-ink md:text-4xl">
@@ -70,56 +70,24 @@ export default function ProgramsPage() {
               Each level builds on the one before it — find the step that matches where you are today.
             </p>
           </Reveal>
-
-          {/* Desktop: horizontal stepper */}
-          <div className="relative mt-14 hidden lg:block">
-            {/* Track behind the nodes, spanning first to last node centre */}
-            <div aria-hidden className="absolute left-[8.33%] right-[8.33%] top-6 h-0.5 bg-line" />
-            <div
-              aria-hidden
-              className="absolute left-[8.33%] right-[8.33%] top-6 h-0.5 bg-linear-to-r from-primary via-primary/70 to-accent"
-            />
-            <ol className="relative grid grid-cols-6 gap-3">
-              {requirements.map((r, i) => (
-                <li key={r.program}>
-                  <Reveal delay={i * 0.09}>
-                    <div className="group flex flex-col items-center text-center">
-                      <span className="z-10 flex h-12 w-12 items-center justify-center rounded-full bg-surface font-display text-lg font-semibold text-primary-deep shadow-[0_0_0_2px_var(--color-primary)] transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
-                        {i + 1}
-                      </span>
-                      <h3 className="mt-5 font-medium leading-snug text-ink">{r.program}</h3>
-                      <p className="mt-1.5 text-[13px] leading-relaxed text-muted">{r.grade}</p>
-                    </div>
-                  </Reveal>
-                </li>
-              ))}
-            </ol>
-          </div>
-
-          {/* Mobile / tablet: vertical stepper */}
-          <ol className="mt-10 lg:hidden">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {requirements.map((r, i) => (
-              <li key={r.program} className="relative flex gap-4 pb-7 last:pb-0">
-                {i < requirements.length - 1 && (
-                  <span
-                    aria-hidden
-                    className="absolute left-[21px] top-12 bottom-0 w-0.5 bg-linear-to-b from-primary/50 to-accent/40"
-                  />
-                )}
-                <Reveal delay={i * 0.06}>
-                  <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-surface font-display font-semibold text-primary-deep shadow-[0_0_0_2px_var(--color-primary)]">
-                    {i + 1}
+              <Reveal key={r.program} delay={(i % 3) * 0.07}>
+                <div className="group relative h-full overflow-hidden rounded-[var(--radius-card)] border border-line bg-paper p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary hover:shadow-[0_22px_44px_-24px_rgba(15,110,86,0.55)]">
+                  {/* Oversized ghost step number */}
+                  <span className="pointer-events-none absolute -right-1 -top-6 font-display text-8xl font-medium text-primary-soft/70 transition-colors duration-300 group-hover:text-accent/25">
+                    0{i + 1}
                   </span>
-                </Reveal>
-                <Reveal delay={i * 0.06 + 0.05}>
-                  <div className="pt-1.5">
-                    <h3 className="font-medium text-ink">{r.program}</h3>
-                    <p className="mt-1 text-sm text-muted">{r.grade}</p>
-                  </div>
-                </Reveal>
-              </li>
+                  <p className="relative text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                    Step {i + 1}
+                  </p>
+                  <h3 className="relative mt-2 font-display text-xl font-medium text-ink">{r.program}</h3>
+                  <p className="relative mt-2 text-sm leading-relaxed text-muted">{r.grade}</p>
+                  <span className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-linear-to-r from-primary to-accent transition-transform duration-500 group-hover:scale-x-100" />
+                </div>
+              </Reveal>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
 
