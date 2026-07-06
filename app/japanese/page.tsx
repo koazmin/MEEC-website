@@ -24,6 +24,8 @@ export default function JapanesePage() {
         title="MEEC Japanese Language Classes"
         subtitle={japanese.intro}
         image="/meec/japanese/jp-class-uniform.jpg"
+        watermark="日本語"
+        variant="creative"
       />
 
       {/* What we offer */}

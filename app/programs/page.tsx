@@ -34,6 +34,8 @@ export default function ProgramsPage() {
         title="Programs built around your goals"
         subtitle="Academic pathways and professional diplomas, taught beyond the ordinary."
         image="/meec/japanese/jp-class-study.jpg"
+        watermark="PROGRAMS"
+        variant="academic"
       />
 
       <Programs />

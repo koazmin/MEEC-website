@@ -24,6 +24,8 @@ export default function OesPage() {
         title="Study abroad, with MEEC by your side"
         subtitle={oes.intro}
         image="/meec/japanese/jp-reception.jpg"
+        watermark="OES"
+        variant="global"
       />
 
       {/* Mission */}

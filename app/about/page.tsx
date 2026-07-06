@@ -23,6 +23,8 @@ export default function AboutPage() {
         title="Where inspiration meets education"
         subtitle={aboutIntro.welcome}
         image="/meec/japanese/jp-anatomy.jpg"
+        watermark="ABOUT"
+        variant="academic"
       />
 
       {/* Overview + vision */}

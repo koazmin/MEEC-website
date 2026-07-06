@@ -143,6 +143,108 @@ video::-webkit-media-controls-start-playback-button {
   animation: meec-sweep 8s ease-in-out infinite;
 }
 
+/* ---- Hero-enhancement keyframes ---- */
+@keyframes meec-gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes meec-draw-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes meec-sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.6); }
+  50% { opacity: 1; transform: scale(1); }
+}
+@keyframes meec-text-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes meec-pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.15); }
+}
+@keyframes meec-morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  50% { border-radius: 50% 60% 30% 60% / 30% 40% 70% 60%; }
+  75% { border-radius: 60% 40% 60% 40% / 60% 50% 40% 50%; }
+}
+
+.animate-gradient-shift {
+  animation: meec-gradient-shift 8s ease infinite;
+  background-size: 200% 200%;
+}
+.animate-draw-line {
+  animation: meec-draw-line 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform-origin: left;
+}
+.animate-sparkle {
+  animation: meec-sparkle 3s ease-in-out infinite;
+}
+.animate-text-shimmer {
+  background-size: 200% auto;
+  animation: meec-text-shimmer 4s linear infinite;
+}
+.animate-pulse-glow {
+  animation: meec-pulse-glow 4s ease-in-out infinite;
+}
+.animate-morph {
+  animation: meec-morph 12s ease-in-out infinite;
+}
+
+/* Noise grain texture overlay */
+.hero-noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* Hero curved bottom edge */
+.hero-curved-bottom {
+  position: relative;
+}
+.hero-curved-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--color-paper);
+  clip-path: ellipse(54% 100% at 50% 100%);
+  z-index: 2;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Big watermark text */
+.hero-watermark {
+  position: absolute;
+  right: -2%;
+  bottom: 5%;
+  font-size: clamp(6rem, 18vw, 20rem);
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  letter-spacing: -0.04em;
+}
+
 /* Shine sweep used on primary buttons */
 .shine {
   position: relative;
@@ -174,7 +276,13 @@ video::-webkit-media-controls-start-playback-button {
   .animate-ken-burns,
   .animate-drift,
   .animate-drift-slow,
-  .animate-sweep {
+  .animate-sweep,
+  .animate-gradient-shift,
+  .animate-draw-line,
+  .animate-sparkle,
+  .animate-text-shimmer,
+  .animate-pulse-glow,
+  .animate-morph {
     animation: none !important;
   }
   .shine:hover::after {

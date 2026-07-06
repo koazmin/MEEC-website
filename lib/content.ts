@@ -94,6 +94,21 @@ export const stats = [
   { value: 6, suffix: "", label: "Program pathways" },
 ];
 
+export type ProgramInfo = {
+  /** Full description shown at the top of the detail dialog. */
+  overview: string;
+  /** Level cards, e.g. GED Starter/Foundation/Preparation or Secondary I/II. */
+  levels?: { name: string; duration: string; entry: string; subjects?: string[]; note?: string }[];
+  /** Flat subject list when the program has a single level. */
+  subjects?: string[];
+  /** Entry requirement for single-level programs. */
+  entry?: string;
+  /** Grouped subject/module lists, e.g. IGCSE optional tracks or diploma modules. */
+  groups?: { name: string; items: string[] }[];
+  /** Extra facts: scoring, teaching approach, awarding body, etc. */
+  notes?: string[];
+};
+
 export type Program = {
   name: string;
   track: "GED" | "Secondary" | "IGCSE" | "Diploma";
@@ -101,6 +116,7 @@ export type Program = {
   blurb: string;
   detail: string;
   featured?: boolean;
+  info: ProgramInfo;
 };
 
 export const programs: Program[] = [
@@ -111,6 +127,25 @@ export const programs: Program[] = [
     blurb:
       "A series of tests for individuals who haven't completed their high school education.",
     detail: "Starter, Foundation & Preparation levels · RLA, Maths, Science, Social studies",
+    info: {
+      overview:
+        "The General Educational Development (GED) is a series of tests designed for individuals who haven't completed their high school education, leading to a high-school-equivalency diploma recognised by employers and institutions. Classes follow a student-centred teaching style with specialised teachers for each subject, interactive lessons, practice exercises and test-taking strategies.",
+      levels: [
+        { name: "GED Starter", duration: "5 months", entry: "Grade 7 passed; Grade 8–9 present" },
+        { name: "GED Foundation", duration: "5 months", entry: "Grade 10 passed or present" },
+        { name: "GED Preparation", duration: "6 months", entry: "Grade 11 passed or present; Grade 12 present" },
+      ],
+      subjects: [
+        "Reasoning Through Language Arts (RLA)",
+        "Mathematical Reasoning",
+        "Science — Life, Physical, Earth & Space",
+        "Social Studies — Civics & Government, U.S. History, Economics, Geography",
+      ],
+      notes: [
+        "Each subject is scored from 100 to 200 — 145+ passes a subject.",
+        "580+ total (out of 800) passes the overall GED test.",
+      ],
+    },
   },
   {
     name: "Pre-GED",
@@ -118,6 +153,17 @@ export const programs: Program[] = [
     duration: "5 months",
     blurb: "Entry preparation before starting the GED program levels.",
     detail: "Foundation literacy and numeracy skills",
+    info: {
+      overview:
+        "Tailored for adults who may not have completed their high school education. The program improves academic skills, familiarises students with the format and structure of the GED test, reduces test anxiety and prepares participants for what to expect on exam day.",
+      entry: "Open entry — designed for learners building up to the GED levels",
+      subjects: [
+        "Reasoning Through Language Arts (RLA)",
+        "Mathematical Reasoning",
+        "Science",
+        "Social Studies",
+      ],
+    },
   },
   {
     name: "Secondary I & II",
@@ -126,6 +172,44 @@ export const programs: Program[] = [
     blurb:
       "Foundation for higher secondary education and preparation for specialised studies.",
     detail: "From Grade 8 / Year 6 (International) · English, Maths, Sciences, ICT, Business",
+    info: {
+      overview:
+        "Secondary I is the foundation stage — an introduction to a broader range of subjects that strengthens core academic skills while developing critical thinking, problem-solving and collaborative learning. Secondary II prepares students for higher levels of education with more specialised, advanced studies and builds personal responsibility, time management and study skills.",
+      levels: [
+        {
+          name: "Secondary I",
+          duration: "10 months",
+          entry: "Grade 8 (Government) or Year 6 (International)",
+          subjects: [
+            "English",
+            "Mathematics",
+            "Physics",
+            "Chemistry",
+            "Biology",
+            "Introduction to ICT Starter",
+            "Introduction to Business Studies",
+            "Introduction to Accounting",
+            "Introduction to Research Methodology",
+          ],
+        },
+        {
+          name: "Secondary II",
+          duration: "10 months",
+          entry: "Grade 9 (Government) or Secondary I / Year 7 (International)",
+          subjects: [
+            "English",
+            "Mathematics",
+            "Physics",
+            "Chemistry",
+            "Biology",
+            "ICT Starter",
+            "Business Studies",
+            "Accounting",
+            "Research Methodology",
+          ],
+        },
+      ],
+    },
   },
   {
     name: "IGCSE O' Level",
@@ -135,6 +219,21 @@ export const programs: Program[] = [
       "An internationally recognised qualification for students aged 14 to 16 years.",
     detail: "Medical · ICT · Business tracks",
     featured: true,
+    info: {
+      overview:
+        "The International General Certificate of Secondary Education (IGCSE) O' Level is an internationally recognised qualification for students aged 14 to 16, typically taken over Grades 9–10. It is equivalent to the General Certificate of Secondary Education (GCSE) in the United Kingdom.",
+      entry: "Grade 10 (Government) or Secondary II (International)",
+      subjects: ["English Language (EFL/ESL)", "Mathematics B", "Physics", "Chemistry"],
+      groups: [
+        { name: "Medical track", items: ["Further Pure Mathematics", "Biology", "Human Biology"] },
+        { name: "Business track", items: ["Accounting", "Business Studies", "Economics"] },
+        {
+          name: "ICT track",
+          items: ["Further Pure Mathematics", "Information & Communication Technology", "Computer Science"],
+        },
+      ],
+      notes: ["Core subjects are taken by every student; one optional track adds specialised subjects."],
+    },
   },
   {
     name: "Pre-IGCSE",
@@ -142,6 +241,22 @@ export const programs: Program[] = [
     duration: "10–12 months",
     blurb: "A bridging program preparing students for the full IGCSE pathway.",
     detail: "English, Maths, Physics, Chemistry, Bio, ICT, Business",
+    info: {
+      overview:
+        "A preparation program for higher education with a more specialised curriculum. Students are expected to develop personal responsibility and time-management skills as they get ready for the full IGCSE O' Level pathway.",
+      entry: "Completion of Secondary II or equivalent",
+      subjects: [
+        "English",
+        "Mathematics",
+        "Physics",
+        "Chemistry",
+        "Biology",
+        "ICT Starter",
+        "Business Studies",
+        "Art & Music",
+        "Physical Education",
+      ],
+    },
   },
   {
     name: "Professional diplomas",
@@ -150,6 +265,40 @@ export const programs: Program[] = [
     blurb:
       "Career-focused diplomas in Human Resource Management, Marketing Management, and Business Model.",
     detail: "Recruitment, Marketing process, and real-world business models",
+    info: {
+      overview:
+        "Career-focused diplomas delivered by Midwest College of London Limited and regulated by the Ofqual and SQF awarding bodies. Choose Human Resource Management to master an organisation's most valuable asset — its people; Marketing Management to plan, implement and oversee strategies that meet customer demands; or Business Model to learn how to start and run a business properly.",
+      groups: [
+        {
+          name: "Diploma in Human Resource Management",
+          items: [
+            "Recruitment & Selection",
+            "Training Development",
+            "Core Compensation & Employee Benefit",
+            "Labor & Employee Relations",
+          ],
+        },
+        {
+          name: "Diploma in Marketing Management",
+          items: [
+            "Defining Marketing & the Marketing Process",
+            "Understanding the Marketplace & Consumer Value",
+            "Designing a Consumer Value-Driven Strategy & Mix",
+            "Extending Marketing",
+          ],
+        },
+        {
+          name: "Diploma in Business Model",
+          items: [
+            "Retail Business Model",
+            "Media & Entertainment Business Model",
+            "Service Business Model",
+            "Manufacturing Business Model",
+          ],
+        },
+      ],
+      notes: ["Awarded by Midwest College of London Limited — Ofqual & SQF regulated."],
+    },
   },
 ];
 

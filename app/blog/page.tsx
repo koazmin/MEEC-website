@@ -20,6 +20,8 @@ export default function BlogPage() {
         eyebrow="From the community"
         title="Stories, ideas & updates"
         subtitle="News and reflections from the MEEC community."
+        watermark="BLOG"
+        variant="creative"
       />
 
       <section className="py-20 md:py-28">

@@ -23,6 +23,7 @@ export default function ContactPage() {
         title="We'd love to hear from you"
         subtitle="Questions about programs, enrolment, or a campus visit? Reach out anytime."
         image="/meec/japanese/jp-reception.jpg"
+        watermark="HELLO"
       />
 
       <section className="py-20 md:py-24">

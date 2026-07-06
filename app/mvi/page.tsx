@@ -26,6 +26,8 @@ export default function MviPage() {
         subtitle={mvi.intro}
         image={mvi.hero}
         kenBurns
+        watermark="MVI"
+        variant="maritime"
       />
 
       {/* Vision / Mission */}

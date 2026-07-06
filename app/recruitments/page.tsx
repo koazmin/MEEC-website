@@ -23,6 +23,8 @@ export default function RecruitmentsPage() {
         title="Recruitments & outreach"
         subtitle="Connecting with students, sharing opportunities, and helping them make informed choices for their journey."
         image="/meec/recruitments/r4.webp"
+        watermark="JOIN"
+        variant="career"
       />
 
       {/* Introduction */}
