@@ -70,26 +70,20 @@ export default function ProgramsPage() {
               Each level builds on the one before it — find the step that matches where you are today.
             </p>
           </Reveal>
-          <div className="mt-10">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {requirements.map((r, i) => (
-              <Reveal key={r.program} delay={i * 0.07}>
-                <div className="group relative flex gap-4 pb-5 last:pb-0 md:gap-6">
-                  {/* Connector rail between step badges */}
-                  {i < requirements.length - 1 && (
-                    <span
-                      aria-hidden
-                      className="absolute left-[21px] top-11 h-full w-0.5 bg-linear-to-b from-primary/35 to-accent/25 md:left-[23px]"
-                    />
-                  )}
-                  {/* Step number */}
-                  <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary-soft font-display text-base font-semibold text-primary-deep ring-4 ring-surface transition-colors duration-300 group-hover:bg-primary group-hover:text-white md:h-12 md:w-12">
-                    {i + 1}
+              <Reveal key={r.program} delay={(i % 3) * 0.07}>
+                <div className="group relative h-full overflow-hidden rounded-[var(--radius-card)] border border-line bg-paper p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary hover:shadow-[0_22px_44px_-24px_rgba(15,110,86,0.55)]">
+                  {/* Oversized ghost step number */}
+                  <span className="pointer-events-none absolute -right-1 -top-6 font-display text-8xl font-medium text-primary-soft/70 transition-colors duration-300 group-hover:text-accent/25">
+                    0{i + 1}
                   </span>
-                  {/* Step card */}
-                  <div className="flex flex-1 flex-wrap items-center justify-between gap-x-6 gap-y-1 rounded-2xl border border-line bg-paper px-5 py-4 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-primary/40 group-hover:shadow-[0_14px_30px_-18px_rgba(15,110,86,0.45)]">
-                    <p className="font-medium text-ink">{r.program}</p>
-                    <p className="text-sm text-muted">{r.grade}</p>
-                  </div>
+                  <p className="relative text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                    Step {i + 1}
+                  </p>
+                  <h3 className="relative mt-2 font-display text-xl font-medium text-ink">{r.program}</h3>
+                  <p className="relative mt-2 text-sm leading-relaxed text-muted">{r.grade}</p>
+                  <span className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-linear-to-r from-primary to-accent transition-transform duration-500 group-hover:scale-x-100" />
                 </div>
               </Reveal>
             ))}
