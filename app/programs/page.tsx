@@ -8,8 +8,6 @@ import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
 import { igcseTracks, igcseCoreSubjects, gedScoring, diplomas, programAccreditation } from "@/lib/content";
 
-import PathwayConnectors from "@/components/effects/PathwayConnectors";
-
 export const metadata: Metadata = {
   title: "Our programs — MEEC",
   description:
@@ -60,36 +58,42 @@ export default function ProgramsPage() {
         </Reveal>
       </section>
 
-      {/* Entry requirements */}
-      <section className="relative overflow-hidden bg-surface py-20 md:py-24">
-        <PathwayConnectors />
-        <div className="relative z-10 mx-auto max-w-4xl px-5">
+      {/* Entry requirements — stepped pathway */}
+      <section className="bg-surface py-20 md:py-24">
+        <div className="mx-auto max-w-4xl px-5">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">Entry requirements</p>
             <h2 className="mt-3 font-display text-3xl font-medium leading-tight text-ink md:text-4xl">
               Where you can start
             </h2>
+            <p className="mt-3 max-w-xl text-muted">
+              Each level builds on the one before it — find the step that matches where you are today.
+            </p>
           </Reveal>
-          <Reveal delay={0.1}>
-            <div className="mt-8 overflow-hidden rounded-[var(--radius-card)] border border-line">
-              <table className="w-full text-left text-sm">
-                <thead>
-                  <tr className="bg-primary-soft/60 text-primary-deep">
-                    <th className="px-5 py-3 font-medium">Program</th>
-                    <th className="px-5 py-3 font-medium">Required level</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {requirements.map((r, i) => (
-                    <tr key={r.program} className={i % 2 ? "bg-paper" : "bg-surface"}>
-                      <td className="px-5 py-3 font-medium text-ink">{r.program}</td>
-                      <td className="px-5 py-3 text-muted">{r.grade}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </Reveal>
+          <div className="mt-10">
+            {requirements.map((r, i) => (
+              <Reveal key={r.program} delay={i * 0.07}>
+                <div className="group relative flex gap-4 pb-5 last:pb-0 md:gap-6">
+                  {/* Connector rail between step badges */}
+                  {i < requirements.length - 1 && (
+                    <span
+                      aria-hidden
+                      className="absolute left-[21px] top-11 h-full w-0.5 bg-linear-to-b from-primary/35 to-accent/25 md:left-[23px]"
+                    />
+                  )}
+                  {/* Step number */}
+                  <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary-soft font-display text-base font-semibold text-primary-deep ring-4 ring-surface transition-colors duration-300 group-hover:bg-primary group-hover:text-white md:h-12 md:w-12">
+                    {i + 1}
+                  </span>
+                  {/* Step card */}
+                  <div className="flex flex-1 flex-wrap items-center justify-between gap-x-6 gap-y-1 rounded-2xl border border-line bg-paper px-5 py-4 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-primary/40 group-hover:shadow-[0_14px_30px_-18px_rgba(15,110,86,0.45)]">
+                    <p className="font-medium text-ink">{r.program}</p>
+                    <p className="text-sm text-muted">{r.grade}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
