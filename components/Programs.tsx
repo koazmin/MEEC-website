@@ -12,7 +12,9 @@ const trackIcon: Record<string, string> = {
   Diploma: "briefcase",
 };
 
-const spring = { type: "spring" as const, stiffness: 300, damping: 24 };
+const spring = { type: "spring" as const, stiffness: 300, damping: 22 };
+
+const item = { hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } };
 
 export default function Programs() {
   const [active, setActive] = useState<(typeof programTracks)[number]>("All");
@@ -126,59 +128,67 @@ export default function Programs() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-end justify-center bg-ink/60 p-0 backdrop-blur-sm sm:items-center sm:p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-ink/60 p-4 backdrop-blur-sm"
             onClick={() => setOpen(null)}
             role="dialog"
             aria-modal="true"
             aria-label={`${open.name} details`}
           >
             <motion.div
-              initial={reduce ? { opacity: 0 } : { opacity: 0, y: 48, scale: 0.96 }}
-              animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1, transition: spring }}
-              exit={reduce ? { opacity: 0 } : { opacity: 0, y: 32, scale: 0.97 }}
+              initial={reduce ? { opacity: 0 } : { scale: 0.9, opacity: 0, y: 28 }}
+              animate={reduce ? { opacity: 1 } : { scale: 1, opacity: 1, y: 0, transition: spring }}
+              exit={{ scale: 0.95, opacity: 0, y: 16, transition: { duration: 0.18 } }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-h-[88vh] w-full max-w-2xl overflow-y-auto rounded-t-[24px] bg-surface shadow-2xl sm:rounded-[24px]"
+              className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-[var(--radius-card)] bg-surface p-7 md:p-9"
             >
-              {/* Header */}
-              <div className="sticky top-0 z-10 border-b border-line bg-surface/95 px-6 py-5 backdrop-blur">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-primary">
-                      <Icon name={trackIcon[open.track]} className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <h3 className="font-display text-xl font-medium text-ink md:text-2xl">{open.name}</h3>
-                      <p className="mt-0.5 text-sm text-muted">Duration: {open.duration}</p>
-                    </div>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => setOpen(null)}
-                    aria-label="Close"
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-primary hover:text-primary"
-                  >
-                    ✕
-                  </button>
-                </div>
-              </div>
+              <button
+                type="button"
+                onClick={() => setOpen(null)}
+                aria-label="Close"
+                className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink transition-all hover:rotate-90 hover:border-primary hover:text-primary"
+              >
+                ✕
+              </button>
 
-              <div className="space-y-7 px-6 py-6">
+              <motion.div
+                initial={reduce ? undefined : "hidden"}
+                animate={reduce ? undefined : "visible"}
+                variants={{ visible: { transition: { staggerChildren: 0.07, delayChildren: 0.08 } } }}
+                className="space-y-6"
+              >
+                {/* Header */}
+                <motion.div variants={item} className="flex items-center gap-4 pr-10">
+                  <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-primary-soft text-primary ring-1 ring-line">
+                    <Icon name={trackIcon[open.track]} className="h-7 w-7" />
+                  </span>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                      Duration: {open.duration}
+                    </p>
+                    <h3 className="mt-1 font-display text-2xl font-medium leading-tight text-ink md:text-3xl">
+                      {open.name}
+                    </h3>
+                  </div>
+                </motion.div>
+
                 {/* Overview */}
-                <p className="leading-relaxed text-muted">{open.info.overview}</p>
+                <motion.p variants={item} className="leading-relaxed text-muted">
+                  {open.info.overview}
+                </motion.p>
 
                 {/* Entry requirement (single-level programs) */}
                 {open.info.entry && (
-                  <div className="rounded-2xl border border-line bg-paper p-4">
+                  <motion.div variants={item} className="rounded-2xl bg-primary-soft/50 p-4">
                     <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
                       Entry requirement
                     </p>
-                    <p className="mt-1.5 text-sm text-ink">{open.info.entry}</p>
-                  </div>
+                    <p className="mt-1.5 text-sm text-primary-deep">{open.info.entry}</p>
+                  </motion.div>
                 )}
 
                 {/* Levels */}
                 {open.info.levels && (
-                  <div>
+                  <motion.div variants={item}>
                     <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Levels</p>
                     <div className="mt-3 space-y-3">
                       {open.info.levels.map((l) => (
@@ -207,12 +217,12 @@ export default function Programs() {
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* Subjects */}
                 {open.info.subjects && (
-                  <div>
+                  <motion.div variants={item}>
                     <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
                       {open.info.groups ? "Core subjects" : "Subjects"}
                     </p>
@@ -224,12 +234,12 @@ export default function Programs() {
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* Groups: IGCSE tracks / diploma modules */}
                 {open.info.groups && (
-                  <div>
+                  <motion.div variants={item}>
                     <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
                       {open.track === "Diploma" ? "Diplomas & modules" : "Optional tracks"}
                     </p>
@@ -248,30 +258,32 @@ export default function Programs() {
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* Notes */}
                 {open.info.notes && (
-                  <div className="rounded-2xl bg-primary-soft/50 p-4">
+                  <motion.div variants={item} className="rounded-2xl bg-primary-soft/50 p-4">
                     {open.info.notes.map((n) => (
                       <p key={n} className="flex items-start gap-2 text-sm leading-relaxed text-primary-deep">
                         <Icon name="star" className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                         {n}
                       </p>
                     ))}
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* CTA */}
-                <a
-                  href="/contact"
-                  className="shine group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-primary-deep transition-transform hover:scale-[1.03] active:scale-95"
-                >
-                  Enquire about this program
-                  <Icon name="arrow" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              </div>
+                <motion.div variants={item}>
+                  <a
+                    href="/contact"
+                    className="shine group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-primary-deep transition-transform hover:scale-[1.03] active:scale-95"
+                  >
+                    Enquire about this program
+                    <Icon name="arrow" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </a>
+                </motion.div>
+              </motion.div>
             </motion.div>
           </motion.div>
         )}
