@@ -11,7 +11,7 @@ function escapeHtml(s: string) {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: Request) {
-  let body: { name?: string; email?: string; subject?: string };
+  let body: { name?: string; email?: string; subject?: string; message?: string };
   try {
     body = await req.json();
   } catch {
@@ -21,6 +21,7 @@ export async function POST(req: Request) {
   const name = (body.name || "").trim();
   const email = (body.email || "").trim();
   const subject = (body.subject || "").trim();
+  const message = (body.message || "").trim().slice(0, 5000);
 
   if (!name || !email) {
     return NextResponse.json({ error: "Please provide your name and email." }, { status: 400 });
@@ -60,6 +61,11 @@ export async function POST(req: Request) {
             <tr><td style="padding:4px 12px 4px 0"><strong>Email</strong></td><td>${escapeHtml(email)}</td></tr>
             <tr><td style="padding:4px 12px 4px 0"><strong>Subject</strong></td><td>${escapeHtml(subject || "—")}</td></tr>
           </table>
+          ${
+            message
+              ? `<p style="font-family:sans-serif;font-size:14px;white-space:pre-wrap;border-left:3px solid #0f6e56;padding-left:12px;margin-top:16px">${escapeHtml(message)}</p>`
+              : ""
+          }
           <p style="font-family:sans-serif;font-size:12px;color:#777">Sent from the MEEC website contact form.</p>
         `,
       }),

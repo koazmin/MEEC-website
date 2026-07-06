@@ -20,6 +20,7 @@ export default function SubscribeForm() {
       name: String(data.get("name") || ""),
       email: String(data.get("email") || ""),
       subject: String(data.get("subject") || ""),
+      message: String(data.get("message") || ""),
     };
 
     setStatus("sending");
@@ -89,7 +90,17 @@ export default function SubscribeForm() {
         placeholder="Subject"
         className={inputClasses}
       />
-      
+      <label htmlFor="iq-message" className="sr-only">
+        Message
+      </label>
+      <textarea
+        id="iq-message"
+        name="message"
+        rows={4}
+        placeholder="Tell us a little about your goals or questions…"
+        className="w-full rounded-xl border-0 bg-white px-4 py-3 text-base text-ink placeholder:text-muted/70 transition-all focus:outline-none focus:ring-4 focus:ring-accent/40"
+      />
+
       <motion.button
         type="submit"
         disabled={status === "sending" || status === "sent"}
