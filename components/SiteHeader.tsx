@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { nav, site } from "@/lib/content";
-import Icon from "./Icon";
 
 export default function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
@@ -92,7 +91,24 @@ export default function SiteHeader({ overlay = false }: { overlay?: boolean }) {
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          <Icon name={open ? "arrow" : "book"} className="h-5 w-5" />
+          {/* Hamburger — three bars morphing into an X when open */}
+          <span aria-hidden className="relative flex h-[14px] w-5 flex-col justify-between">
+            <span
+              className={`h-0.5 w-full rounded-full bg-current transition-transform duration-300 ${
+                open ? "translate-y-[6px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`h-0.5 w-full rounded-full bg-current transition-opacity duration-200 ${
+                open ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`h-0.5 w-full rounded-full bg-current transition-transform duration-300 ${
+                open ? "-translate-y-[6px] -rotate-45" : ""
+              }`}
+            />
+          </span>
           <span className="sr-only">Menu</span>
         </button>
       </div>
