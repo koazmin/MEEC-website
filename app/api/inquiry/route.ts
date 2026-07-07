@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 function escapeHtml(s: string) {
   return s
@@ -30,11 +31,14 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.INQUIRY_TO_EMAIL;
-  const from = process.env.RESEND_FROM || "MEEC Website <onboarding@resend.dev>";
+  // cPanel mailbox SMTP (e.g. mail.meec.edu.mm:465, inquiry@meec.edu.mm).
+  const host = process.env.SMTP_HOST;
+  const port = Number(process.env.SMTP_PORT || 465);
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  const to = process.env.INQUIRY_TO_EMAIL || user;
 
-  if (!apiKey || !to) {
+  if (!host || !user || !pass || !to) {
     // Not configured yet — fail clearly so the form can show a helpful message.
     return NextResponse.json(
       { error: "The inquiry inbox isn't configured yet. Please try again later." },
@@ -43,43 +47,37 @@ export async function POST(req: Request) {
   }
 
   try {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from,
-        to: [to],
-        reply_to: email,
-        subject: `New inquiry from ${name}${subject ? ` — ${subject}` : ""}`,
-        html: `
-          <h2 style="font-family:sans-serif">New website inquiry</h2>
-          <table style="font-family:sans-serif;font-size:14px;border-collapse:collapse">
-            <tr><td style="padding:4px 12px 4px 0"><strong>Name</strong></td><td>${escapeHtml(name)}</td></tr>
-            <tr><td style="padding:4px 12px 4px 0"><strong>Email</strong></td><td>${escapeHtml(email)}</td></tr>
-            <tr><td style="padding:4px 12px 4px 0"><strong>Subject</strong></td><td>${escapeHtml(subject || "—")}</td></tr>
-          </table>
-          ${
-            message
-              ? `<p style="font-family:sans-serif;font-size:14px;white-space:pre-wrap;border-left:3px solid #0f6e56;padding-left:12px;margin-top:16px">${escapeHtml(message)}</p>`
-              : ""
-          }
-          <p style="font-family:sans-serif;font-size:12px;color:#777">Sent from the MEEC website contact form.</p>
-        `,
-      }),
+    const transporter = nodemailer.createTransport({
+      host,
+      port,
+      secure: port === 465, // SSL on 465, STARTTLS otherwise
+      auth: { user, pass },
     });
 
-    if (!res.ok) {
-      const detail = await res.text();
-      console.error("Resend error:", detail);
-      return NextResponse.json({ error: "Could not send your inquiry. Please try again." }, { status: 502 });
-    }
+    await transporter.sendMail({
+      from: `"MEEC Website" <${user}>`,
+      to,
+      replyTo: email,
+      subject: `New inquiry from ${name}${subject ? ` — ${subject}` : ""}`,
+      html: `
+        <h2 style="font-family:sans-serif">New website inquiry</h2>
+        <table style="font-family:sans-serif;font-size:14px;border-collapse:collapse">
+          <tr><td style="padding:4px 12px 4px 0"><strong>Name</strong></td><td>${escapeHtml(name)}</td></tr>
+          <tr><td style="padding:4px 12px 4px 0"><strong>Email</strong></td><td>${escapeHtml(email)}</td></tr>
+          <tr><td style="padding:4px 12px 4px 0"><strong>Subject</strong></td><td>${escapeHtml(subject || "—")}</td></tr>
+        </table>
+        ${
+          message
+            ? `<p style="font-family:sans-serif;font-size:14px;white-space:pre-wrap;border-left:3px solid #0f6e56;padding-left:12px;margin-top:16px">${escapeHtml(message)}</p>`
+            : ""
+        }
+        <p style="font-family:sans-serif;font-size:12px;color:#777">Sent from the MEEC website contact form.</p>
+      `,
+    });
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("Inquiry route error:", err);
-    return NextResponse.json({ error: "Something went wrong. Please try again." }, { status: 500 });
+    console.error("Inquiry SMTP error:", err);
+    return NextResponse.json({ error: "Could not send your inquiry. Please try again." }, { status: 502 });
   }
 }
