@@ -5,6 +5,7 @@ import SiteShell from "@/components/SiteShell";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import Tilt from "@/components/Tilt";
+import AnimatedHeading from "@/components/AnimatedHeading";
 import WaveDivider from "@/components/WaveDivider";
 import Icon from "@/components/Icon";
 import { mvi } from "@/lib/content";
@@ -54,27 +55,36 @@ export default function MviPage() {
       </section>
 
       {/* Values — wave-bordered green band */}
-      <section className="relative bg-primary-deep text-white">
+      <section className="relative overflow-hidden bg-primary-deep text-white">
         <WaveDivider fill="var(--color-paper)" />
         <div
           aria-hidden
-          className="animate-float pointer-events-none absolute right-[8%] top-24 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
+          className="animate-spin-slow pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full border border-white/5"
+        />
+        <div
+          aria-hidden
+          className="animate-float pointer-events-none absolute -bottom-24 left-10 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
         />
         <div className="relative mx-auto max-w-6xl px-5 py-14 md:py-20">
-          <Reveal>
+          <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent-soft">What we stand for</p>
-            <h2 className="mt-3 font-display text-3xl font-medium md:text-4xl">Our core values</h2>
-          </Reveal>
+            <AnimatedHeading
+              text="Our core values"
+              className="mt-3 font-display text-3xl font-medium leading-tight md:text-4xl"
+            />
+          </div>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {mvi.values.map((v, i) => (
               <Reveal key={v.title} delay={i * 0.08}>
-                <div className="group h-full rounded-[var(--radius-card)] border border-white/15 bg-white/5 p-7 transition-colors duration-300 hover:border-accent/50 hover:bg-white/10">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-primary-deep transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
-                    <Icon name={valueIcon[v.icon]} className="h-6 w-6" />
-                  </span>
-                  <h3 className="mt-5 font-display text-xl font-medium">{v.title}</h3>
-                  <p className="mt-2 leading-relaxed text-white/75">{v.body}</p>
-                </div>
+                <Tilt className="h-full">
+                  <div className="group h-full rounded-[var(--radius-card)] border border-white/15 bg-white/5 p-7 transition-colors duration-300 hover:border-accent/50 hover:bg-white/10">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-primary-deep transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
+                      <Icon name={valueIcon[v.icon]} className="h-6 w-6" />
+                    </span>
+                    <h3 className="mt-5 font-display text-xl font-medium">{v.title}</h3>
+                    <p className="mt-2 leading-relaxed text-white/75">{v.body}</p>
+                  </div>
+                </Tilt>
               </Reveal>
             ))}
           </div>
