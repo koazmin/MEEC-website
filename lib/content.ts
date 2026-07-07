@@ -156,7 +156,7 @@ export const programs: Program[] = [
     info: {
       overview:
         "Tailored for adults who may not have completed their high school education. The program improves academic skills, familiarises students with the format and structure of the GED test, reduces test anxiety and prepares participants for what to expect on exam day.",
-      entry: "Open entry — designed for learners building up to the GED levels",
+      entry: "Grade 10 passed or present",
       subjects: [
         "Reasoning Through Language Arts (RLA)",
         "Mathematical Reasoning",
