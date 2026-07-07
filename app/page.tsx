@@ -14,6 +14,7 @@ import FloatingContact from "@/components/FloatingContact";
 import Parallax from "@/components/Parallax";
 import Tilt from "@/components/Tilt";
 import AnimatedHeading from "@/components/AnimatedHeading";
+import TeachingApproach from "@/components/TeachingApproach";
 import AuroraGlow from "@/components/effects/AuroraGlow";
 import {
   site,
@@ -21,7 +22,6 @@ import {
   mission,
   missionPillars,
   coreValues,
-  teachingApproach,
 } from "@/lib/content";
 
 const valueIcon: Record<string, string> = {
@@ -157,18 +157,7 @@ export default function Home() {
 
 
         {/* Teaching approach */}
-        <section className="bg-surface py-20 md:py-28">
-          <div className="mx-auto max-w-4xl px-5 text-center">
-            <Reveal>
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
-                {teachingApproach.title}
-              </p>
-              <p className="mt-5 font-display text-2xl font-medium leading-snug text-ink md:text-[2.1rem]">
-                {teachingApproach.body}
-              </p>
-            </Reveal>
-          </div>
-        </section>
+        <TeachingApproach />
 
         {/* Contact / Subscribe */}
         <section id="contact" className="scroll-mt-20 py-20 md:py-24">

@@ -7,7 +7,8 @@ import Icon from "@/components/Icon";
 import Tilt from "@/components/Tilt";
 import AnimatedHeading from "@/components/AnimatedHeading";
 import TimelineReveal from "@/components/effects/TimelineReveal";
-import { aboutIntro, vision, mission, missionPillars, coreValues, leadership, teachingApproach } from "@/lib/content";
+import TeachingApproach from "@/components/TeachingApproach";
+import { aboutIntro, vision, mission, missionPillars, coreValues, leadership } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About us — MEEC",
@@ -153,16 +154,7 @@ export default function AboutPage() {
       </section>
 
       {/* Teaching approach */}
-      <section className="bg-surface py-20 md:py-24">
-        <div className="mx-auto max-w-4xl px-5 text-center">
-          <Reveal>
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">{teachingApproach.title}</p>
-            <p className="mt-5 font-display text-2xl font-medium leading-snug text-ink md:text-[2.1rem]">
-              {teachingApproach.body}
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <TeachingApproach />
     </SiteShell>
   );
 }
