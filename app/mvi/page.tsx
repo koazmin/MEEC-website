@@ -123,23 +123,38 @@ export default function MviPage() {
         <div className="relative mx-auto max-w-6xl px-5 py-14 md:py-20">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent-soft">Our team</p>
-            <h2 className="mt-3 font-display text-3xl font-medium md:text-4xl">Meet our trainers</h2>
+            <h2 className="mt-3 font-display text-3xl font-medium md:text-4xl">Trainer&rsquo;s profiles</h2>
           </Reveal>
-          <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4 lg:grid-cols-7">
-            {mvi.trainerPhotos.map((src, i) => (
-              <Reveal key={src} delay={(i % 7) * 0.05}>
-                <div className="group relative mx-auto aspect-square w-full max-w-[130px]">
-                  <span className="absolute -inset-1 rounded-full bg-linear-to-tr from-accent to-primary opacity-0 blur-[6px] transition-opacity duration-300 group-hover:opacity-70" />
-                  <div className="relative h-full w-full overflow-hidden rounded-full ring-2 ring-white/20 transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105 group-hover:ring-accent">
-                    <Image
-                      src={src}
-                      alt={`MVI trainer ${i + 1}`}
-                      fill
-                      loading="lazy"
-                      sizes="130px"
-                      className="object-cover"
-                    />
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {mvi.trainerProfiles.map((t, i) => (
+              <Reveal key={t.name} delay={(i % 3) * 0.08}>
+                <div className="group relative h-full overflow-hidden rounded-[var(--radius-card)] border border-white/15 bg-white/5 p-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:bg-white/10 hover:shadow-[0_24px_50px_-28px_rgba(224,162,38,0.5)]">
+                  {/* Accent sweep along the top on hover */}
+                  <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-linear-to-r from-accent to-primary transition-transform duration-500 group-hover:scale-x-100" />
+                  {/* Portrait with glow ring */}
+                  <div className="relative mx-auto h-28 w-28">
+                    <span className="absolute -inset-1 rounded-full bg-linear-to-tr from-accent to-primary opacity-0 blur-[6px] transition-opacity duration-300 group-hover:opacity-70" />
+                    <div className="relative h-full w-full overflow-hidden rounded-full ring-2 ring-white/20 transition-all duration-300 group-hover:scale-105 group-hover:ring-accent">
+                      <Image
+                        src={t.photo}
+                        alt={t.name}
+                        fill
+                        loading="lazy"
+                        sizes="112px"
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
+                  <h3 className="mt-5 font-display text-xl font-medium">{t.name}</h3>
+                  <p className="mt-1 text-sm font-semibold uppercase tracking-[0.12em] text-accent-soft">{t.role}</p>
+                  <ul className="mt-4 space-y-1.5 border-t border-white/10 pt-4 text-left">
+                    {t.quals.map((q) => (
+                      <li key={q} className="flex items-start gap-2 text-[13px] leading-relaxed text-white/75">
+                        <Icon name="check" className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" />
+                        {q}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </Reveal>
             ))}

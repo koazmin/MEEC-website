@@ -829,6 +829,69 @@ export const mvi = {
     "/meec/mvi/trainer-06.webp",
     "/meec/mvi/trainer-07.webp",
   ],
+  // Trainer's Profiles — from meec.edu.mm/mvi
+  trainerProfiles: [
+    {
+      name: "Mr. Min Min Tun",
+      role: "Master",
+      photo: "/meec/mvi/trainer-01.webp",
+      quals: [
+        "PhD Candidate (International Business Management), IES (France)",
+        "Master Mariner, AFNI (UK)",
+        "IMLA Certified Administrator, Trainer & Assessor (IMO, World Maritime University)",
+        "Certified Lead Auditor ISO 9001 (QMS)",
+      ],
+    },
+    {
+      name: "Mr. Nyi Nyi Khaing",
+      role: "Deck Training Head",
+      photo: "/meec/mvi/trainer-02.webp",
+      quals: ["Deck Officer Class I", "BSc (IC)"],
+    },
+    {
+      name: "Mr. Hla Win",
+      role: "Superintendent · Chief Engineer",
+      photo: "/meec/mvi/trainer-03.webp",
+      quals: [
+        "B.E (Mechanical), MOT First Class — Class I",
+        "Chief Engineer Part (B)",
+        "Maritime Instructor (PGI), (IC)",
+        "Kano Mahar · Fair Way · Apex · Miraco Shipping",
+      ],
+    },
+    {
+      name: "Mr. Than Htay",
+      role: "Training Manager · Crew Manager",
+      photo: "/meec/mvi/trainer-04.webp",
+      quals: [
+        "Maritime Instructor (PGI)",
+        "Deck Officer Class III / 2nd Mate (FG)",
+        "USHING · INAI · Raffles Shipping, IMTC",
+      ],
+    },
+    {
+      name: "Mr. Aung Myat",
+      role: "Fitter Welder",
+      photo: "/meec/mvi/trainer-05.webp",
+      quals: ["Fitter"],
+    },
+    {
+      name: "Mr. Sein Hlaing",
+      role: "Chief Cook",
+      photo: "/meec/mvi/trainer-06.webp",
+      quals: ["Maritime Instructor", "JSM / KTM Shipping"],
+    },
+    {
+      name: "Mr. Min Naing Htun",
+      role: "English Instructor",
+      photo: "/meec/mvi/trainer-07.webp",
+      quals: [
+        "M.A. (English)",
+        "Level 7 Diploma in Teaching English (TQUK Endorsed)",
+        "Certificate in Teaching English to Young Learners",
+      ],
+    },
+  ],
 };
 
 // ---------------------------------------------------------------------------
