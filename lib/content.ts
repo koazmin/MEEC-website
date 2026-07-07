@@ -171,7 +171,7 @@ export const programs: Program[] = [
     duration: "10 months",
     blurb:
       "Foundation for higher secondary education and preparation for specialised studies.",
-    detail: "From Grade 8 / Year 6 (International) · English, Maths, Sciences, ICT, Business",
+    detail: "From Grade 8 / Year 6 (International) · English, Maths, Sciences, Computing",
     info: {
       overview:
         "Secondary I is the foundation stage — an introduction to a broader range of subjects that strengthens core academic skills while developing critical thinking, problem-solving and collaborative learning. Secondary II prepares students for higher levels of education with more specialised, advanced studies and builds personal responsibility, time management and study skills.",
@@ -186,10 +186,7 @@ export const programs: Program[] = [
             "Physics",
             "Chemistry",
             "Biology",
-            "Introduction to ICT Starter",
-            "Introduction to Business Studies",
-            "Introduction to Accounting",
-            "Introduction to Research Methodology",
+            "Introduction to Computing",
           ],
         },
         {
@@ -202,10 +199,7 @@ export const programs: Program[] = [
             "Physics",
             "Chemistry",
             "Biology",
-            "ICT Starter",
-            "Business Studies",
-            "Accounting",
-            "Research Methodology",
+            "Computing",
           ],
         },
       ],
