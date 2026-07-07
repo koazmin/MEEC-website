@@ -101,6 +101,8 @@ export type ProgramInfo = {
   levels?: { name: string; duration: string; entry: string; subjects?: string[]; note?: string }[];
   /** Flat subject list when the program has a single level. */
   subjects?: string[];
+  /** Heading shown above the subjects list (defaults to "Subjects"). */
+  subjectsLabel?: string;
   /** Entry requirement for single-level programs. */
   entry?: string;
   /** Grouped subject/module lists, e.g. IGCSE optional tracks or diploma modules. */
@@ -111,7 +113,7 @@ export type ProgramInfo = {
 
 export type Program = {
   name: string;
-  track: "GED" | "Secondary" | "IGCSE" | "Diploma";
+  track: "GED" | "Secondary" | "IGCSE" | "Diploma" | "Japanese";
   duration: string;
   blurb: string;
   detail: string;
@@ -120,6 +122,25 @@ export type Program = {
 };
 
 export const programs: Program[] = [
+  {
+    name: "GED Starter Program",
+    track: "GED",
+    duration: "5 months",
+    blurb:
+      "Help students build confidence, improve their academic readiness, and develop the knowledge needed to succeed in the Pre-GED and GED programs.",
+    detail: "Strong foundation before Pre-GED · RLA, Maths, Science, Social studies",
+    info: {
+      overview:
+        "Designed for students who need a strong foundation before joining the Pre-GED program. It introduces the basic terms, concepts, and essential skills in English, Mathematics, Science, and Social Studies through simple and engaging lessons.",
+      entry: "Grade 7 passed; Grade 8–9 present",
+      subjects: [
+        "Reasoning Through Language Arts (RLA)",
+        "Mathematical Reasoning",
+        "Science",
+        "Social Studies",
+      ],
+    },
+  },
   {
     name: "GED program",
     track: "GED",
@@ -271,9 +292,29 @@ export const programs: Program[] = [
       notes: ["Awarded by Midwest College of London Limited — Ofqual & SQF regulated."],
     },
   },
+  {
+    name: "Japanese Language Program",
+    track: "Japanese",
+    duration: "Flexible",
+    blurb:
+      "Our comprehensive Japanese Language Program is designed to help students achieve their academic and career goals in Japan through high-quality language education and professional guidance.",
+    detail: "JLPT preparation · Study in Japan · SSW training",
+    info: {
+      overview:
+        "Our comprehensive Japanese Language Program is designed to help students achieve their academic and career goals in Japan through high-quality language education and professional guidance.",
+      subjectsLabel: "Our services",
+      subjects: [
+        "Japanese Language and cultural training",
+        "JLPT Preparation Courses",
+        "Study in Japan Consultation",
+        "Specified Skilled Worker (SSW) Training",
+        "Career Placement Support",
+      ],
+    },
+  },
 ];
 
-export const programTracks = ["All", "GED", "Secondary", "IGCSE", "Diploma"] as const;
+export const programTracks = ["All", "GED", "Secondary", "IGCSE", "Diploma", "Japanese"] as const;
 
 export const igcseTracks = [
   { name: "Medical track", subjects: ["Further Pure Mathematics", "Biology", "Human Biology"] },

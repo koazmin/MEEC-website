@@ -10,6 +10,7 @@ const trackIcon: Record<string, string> = {
   Secondary: "cap",
   IGCSE: "globe",
   Diploma: "briefcase",
+  Japanese: "bowl",
 };
 
 const spring = { type: "spring" as const, stiffness: 300, damping: 22 };
@@ -224,7 +225,7 @@ export default function Programs() {
                 {open.info.subjects && (
                   <motion.div variants={item}>
                     <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
-                      {open.info.groups ? "Core subjects" : "Subjects"}
+                      {open.info.subjectsLabel ?? (open.info.groups ? "Core subjects" : "Subjects")}
                     </p>
                     <ul className="mt-3 space-y-2">
                       {open.info.subjects.map((s) => (
