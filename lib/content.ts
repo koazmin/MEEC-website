@@ -148,7 +148,7 @@ export const programs: Program[] = [
     },
   },
   {
-    name: "Pre-GED",
+    name: "GED Foundation Program",
     track: "GED",
     duration: "5 months",
     blurb: "Entry preparation before starting the GED program levels.",
@@ -233,29 +233,6 @@ export const programs: Program[] = [
         },
       ],
       notes: ["Core subjects are taken by every student; one optional track adds specialised subjects."],
-    },
-  },
-  {
-    name: "Pre-IGCSE",
-    track: "IGCSE",
-    duration: "10–12 months",
-    blurb: "A bridging program preparing students for the full IGCSE pathway.",
-    detail: "English, Maths, Physics, Chemistry, Bio, ICT, Business",
-    info: {
-      overview:
-        "A preparation program for higher education with a more specialised curriculum. Students are expected to develop personal responsibility and time-management skills as they get ready for the full IGCSE O' Level pathway.",
-      entry: "Completion of Secondary II or equivalent",
-      subjects: [
-        "English",
-        "Mathematics",
-        "Physics",
-        "Chemistry",
-        "Biology",
-        "ICT Starter",
-        "Business Studies",
-        "Art & Music",
-        "Physical Education",
-      ],
     },
   },
   {
