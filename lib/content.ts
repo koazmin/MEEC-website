@@ -142,6 +142,24 @@ export const programs: Program[] = [
     },
   },
   {
+    name: "GED Foundation Program",
+    track: "GED",
+    duration: "5 months",
+    blurb: "Entry preparation before starting the GED program levels.",
+    detail: "Foundation literacy and numeracy skills",
+    info: {
+      overview:
+        "Tailored for adults who may not have completed their high school education. The program improves academic skills, familiarises students with the format and structure of the GED test, reduces test anxiety and prepares participants for what to expect on exam day.",
+      entry: "Grade 10 passed or present",
+      subjects: [
+        "Reasoning Through Language Arts (RLA)",
+        "Mathematical Reasoning",
+        "Science",
+        "Social Studies",
+      ],
+    },
+  },
+  {
     name: "GED program",
     track: "GED",
     duration: "6 months",
@@ -165,24 +183,6 @@ export const programs: Program[] = [
       notes: [
         "Each subject is scored from 100 to 200 — 145+ passes a subject.",
         "580+ total (out of 800) passes the overall GED test.",
-      ],
-    },
-  },
-  {
-    name: "GED Foundation Program",
-    track: "GED",
-    duration: "5 months",
-    blurb: "Entry preparation before starting the GED program levels.",
-    detail: "Foundation literacy and numeracy skills",
-    info: {
-      overview:
-        "Tailored for adults who may not have completed their high school education. The program improves academic skills, familiarises students with the format and structure of the GED test, reduces test anxiety and prepares participants for what to expect on exam day.",
-      entry: "Grade 10 passed or present",
-      subjects: [
-        "Reasoning Through Language Arts (RLA)",
-        "Mathematical Reasoning",
-        "Science",
-        "Social Studies",
       ],
     },
   },
