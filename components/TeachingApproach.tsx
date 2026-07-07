@@ -58,9 +58,9 @@ export default function TeachingApproach() {
                   {highlights.map((h) => (
                     <li
                       key={h.label}
-                      className="flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur-sm transition-colors duration-300 hover:border-accent/50 hover:bg-white/15"
+                      className="flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-medium backdrop-blur-sm transition-colors duration-300 hover:border-accent/50 hover:bg-white/15 max-sm:w-full"
                     >
-                      <Icon name={h.icon} className="h-4 w-4 text-accent" />
+                      <Icon name={h.icon} className="h-4 w-4 shrink-0 text-accent" />
                       {h.label}
                     </li>
                   ))}
