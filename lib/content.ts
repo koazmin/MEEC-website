@@ -123,7 +123,7 @@ export const programs: Program[] = [
   {
     name: "GED program",
     track: "GED",
-    duration: "5–6 months",
+    duration: "6 months",
     blurb:
       "A series of tests for individuals who haven't completed their high school education.",
     detail: "Starter, Foundation & Preparation levels · RLA, Maths, Science, Social studies",
