@@ -79,13 +79,17 @@ export default function ContactPage() {
               </div>
 
               <div className="mt-8 overflow-hidden rounded-[var(--radius-card)] border border-line">
-                <iframe
-                  title="MEEC location map"
-                  src={mapSrc}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="h-64 w-full border-0"
-                />
+                {/* Crop the top of the embed so Google's own info card (place name /
+                    "Open in Maps" links) stays hidden — our button below covers that. */}
+                <div className="relative h-64 overflow-hidden">
+                  <iframe
+                    title="MEEC location map"
+                    src={mapSrc}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="absolute -top-28 left-0 h-[calc(100%+7rem)] w-full border-0"
+                  />
+                </div>
                 <a
                   href="https://maps.app.goo.gl/uuqRu2DuYy6P2DCo6"
                   target="_blank"
