@@ -79,7 +79,7 @@ export default function SiteHeader({ overlay = false }: { overlay?: boolean }) {
             href="/contact"
             className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03] active:scale-95"
           >
-            Enrol now
+            Enroll now
           </Link>
         </div>
 
@@ -133,7 +133,7 @@ export default function SiteHeader({ overlay = false }: { overlay?: boolean }) {
               onClick={() => setOpen(false)}
               className="mt-2 rounded-full bg-primary px-5 py-3 text-center text-base font-semibold text-white"
             >
-              Enrol now
+              Enroll now
             </Link>
             <p className="mt-3 px-3 text-xs text-muted">{site.phones.join(" · ")}</p>
           </nav>
