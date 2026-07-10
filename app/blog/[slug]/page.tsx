@@ -6,7 +6,7 @@ import SiteShell from "@/components/SiteShell";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
-import { blogPosts } from "@/lib/content";
+import { blogPosts, youtubeId } from "@/lib/content";
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -34,8 +34,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <article className="py-16 md:py-20">
         <div className="mx-auto max-w-3xl px-5">
           <Reveal>
-            <div className="relative aspect-[16/9] overflow-hidden rounded-[var(--radius-card)] border border-line">
-              <Image src={post.image} alt="" fill sizes="(max-width:768px) 100vw, 768px" className="object-cover" />
+            <div className="relative aspect-video overflow-hidden rounded-[var(--radius-card)] border border-line bg-ink">
+              {post.youtube ? (
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${youtubeId(post.youtube)}`}
+                  title={post.title}
+                  className="absolute inset-0 h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              ) : (
+                <Image src={post.image} alt="" fill sizes="(max-width:768px) 100vw, 768px" className="object-cover" />
+              )}
             </div>
           </Reveal>
           <Reveal delay={0.1}>

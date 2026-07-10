@@ -41,6 +41,14 @@ export default function BlogPage() {
                       sizes="(max-width:640px) 100vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
+                    {post.youtube && (
+                      <>
+                        <span className="absolute inset-0 bg-ink/25 transition-colors group-hover:bg-ink/10" />
+                        <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform duration-300 group-hover:scale-110">
+                          <span className="ml-1 h-0 w-0 border-y-8 border-l-[13px] border-y-transparent border-l-primary-deep" />
+                        </span>
+                      </>
+                    )}
                   </div>
                   <div className="p-6">
                     <p className="text-xs font-medium uppercase tracking-[0.12em] text-muted">{post.date}</p>

@@ -915,7 +915,25 @@ export const mvi = {
 // Blog
 // ---------------------------------------------------------------------------
 
-export const blogPosts = [
+export type BlogPost = {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  image: string;
+  /** Optional YouTube video — a full watch/share URL or a bare 11-char ID. */
+  youtube?: string;
+};
+
+/** Pull a YouTube video ID out of a watch / youtu.be / embed / shorts URL, or a bare ID. */
+export function youtubeId(input: string): string {
+  const m = input.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/|live\/))([\w-]{11})/,
+  );
+  return m ? m[1] : input.trim();
+}
+
+export const blogPosts: BlogPost[] = [
   {
     slug: "message-from-the-editor-in-chief",
     title: "Message from the Editor-in-Chief",
