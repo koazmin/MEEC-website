@@ -821,6 +821,7 @@ export const mvi = {
     { name: "Wheel Simulator Training", body: "Hands-on bridge simulator practice for navigation, manoeuvring, and watchkeeping." },
     { name: "OLR Ready Course", body: "Arc and gas welding." },
     { name: "Cadet Ready Course", body: "Deck operations, engine room, messman duties, and English & Chinese language training." },
+    { name: "4/E On-the-Job Training (OJT) Course", body: "Duties and responsibilities of the Fourth Engineer, theoretical and practical training on purifiers, air compressors and pumps, bunker calculations, and 4/E handover and takeover procedures." },
   ],
   trainers:
     "Trained by qualified maritime professionals — certified deck officers, chief engineers, maritime instructors, and language specialists.",
