@@ -37,7 +37,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="relative aspect-video overflow-hidden rounded-[var(--radius-card)] border border-line bg-ink">
               {post.youtube ? (
                 <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${youtubeId(post.youtube)}`}
+                  src={`https://www.youtube-nocookie.com/embed/${youtubeId(post.youtube)}?rel=0&modestbranding=1`}
                   title={post.title}
                   className="absolute inset-0 h-full w-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
