@@ -814,7 +814,7 @@ export const mvi = {
     { title: "Integrity", body: "Maintaining professional maritime standards.", icon: "shield" },
   ],
   courses: [
-    { name: "Welding Course", body: "Arc welding, gas cutting and welding, and lathe machine operation." },
+    { name: "Welding Course", body: "Arc welding, gas cutting & welding, and stores and inventory." },
     { name: "GS / Messman Ready Course", body: "Steward duties, bed making, galley operations, and waste management." },
     { name: "Mental Health Awareness Course", body: "Alcohol and drug awareness, stress management, and mental health topics." },
     { name: "AB Ready Course", body: "Shipboard safety, navigation, watchkeeping, and deck operations." },
