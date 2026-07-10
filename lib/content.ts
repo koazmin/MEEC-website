@@ -862,6 +862,16 @@ export const mvi = {
       quals: ["Deck Officer Class I", "BSc (IC)"],
     },
     {
+      name: "Mr. S Johnny",
+      role: "Engine Training Head",
+      photo: "/meec/mvi/trainer-johnny.jpg",
+      quals: [
+        "A.G.T.I (Mechanical), MOT First Class",
+        "Ex Chief Engineer (Sailing Vessel & Offshore Industries)",
+        "Ex Visiting Examiner (Dept. of Marine Administration)",
+      ],
+    },
+    {
       name: "Mr. Hla Win",
       role: "Superintendent · Chief Engineer",
       photo: "/meec/mvi/trainer-03.webp",
@@ -887,12 +897,6 @@ export const mvi = {
       role: "Fitter Welder",
       photo: "/meec/mvi/trainer-05.webp",
       quals: ["Fitter"],
-    },
-    {
-      name: "Mr. Sein Hlaing",
-      role: "Chief Cook",
-      photo: "/meec/mvi/trainer-06.webp",
-      quals: ["Maritime Instructor", "JSM / KTM Shipping"],
     },
     {
       name: "Mr. Min Naing Htun",
