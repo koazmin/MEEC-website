@@ -935,6 +935,15 @@ export function youtubeId(input: string): string {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "a-day-in-the-life-of-an-igcse-student",
+    title: "What a day in the life of an IGCSE student looks like",
+    date: "July 2026",
+    excerpt:
+      "Step inside a typical school day at MEEC — the classes, activities, and small moments that make up an IGCSE student's routine.",
+    image: "/meec/blog/vid-0GqmwwN11GM.jpg",
+    youtube: "https://youtu.be/0GqmwwN11GM",
+  },
+  {
     slug: "message-from-the-editor-in-chief",
     title: "Message from the Editor-in-Chief",
     date: "October 2, 2025",
