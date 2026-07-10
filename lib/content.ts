@@ -935,6 +935,15 @@ export function youtubeId(input: string): string {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "why-i-love-studying-ged-at-meec",
+    title: "Why I Love Studying GED at MEEC",
+    date: "July 2026",
+    excerpt:
+      "A MEEC student shares, in their own words, what makes studying for the GED here worthwhile.",
+    image: "/meec/blog/vid-Xr8jNdSUUT4.jpg",
+    youtube: "https://youtube.com/shorts/Xr8jNdSUUT4",
+  },
+  {
     slug: "a-day-in-the-life-of-an-igcse-student",
     title: "What a day in the life of an IGCSE student looks like",
     date: "July 2026",

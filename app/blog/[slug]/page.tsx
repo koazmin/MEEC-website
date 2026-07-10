@@ -34,8 +34,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <article className="py-16 md:py-20">
         <div className="mx-auto max-w-3xl px-5">
           <Reveal>
-            <div className="relative aspect-video overflow-hidden rounded-[var(--radius-card)] border border-line bg-ink">
-              {post.youtube ? (
+            {post.youtube ? (
+              <div
+                className={`relative mx-auto overflow-hidden rounded-[var(--radius-card)] border border-line bg-ink ${
+                  post.youtube.includes("/shorts/") ? "aspect-[9/16] max-w-[360px]" : "aspect-video"
+                }`}
+              >
                 <iframe
                   src={`https://www.youtube-nocookie.com/embed/${youtubeId(post.youtube)}?rel=0&modestbranding=1`}
                   title={post.title}
@@ -44,10 +48,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   allowFullScreen
                   loading="lazy"
                 />
-              ) : (
+              </div>
+            ) : (
+              <div className="relative aspect-video overflow-hidden rounded-[var(--radius-card)] border border-line">
                 <Image src={post.image} alt="" fill sizes="(max-width:768px) 100vw, 768px" className="object-cover" />
-              )}
-            </div>
+              </div>
+            )}
           </Reveal>
           <Reveal delay={0.1}>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted">
