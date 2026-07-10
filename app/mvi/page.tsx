@@ -112,7 +112,7 @@ export default function MviPage() {
                     <Icon name="anchor" className="h-5 w-5" />
                   </span>
                   <h3 className="relative mt-4 font-medium text-ink">{c.name}</h3>
-                  <p className="relative mt-1 text-sm leading-relaxed text-muted">{c.body}</p>
+                  {c.body && <p className="relative mt-1 text-sm leading-relaxed text-muted">{c.body}</p>}
                   <span className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-linear-to-r from-primary to-accent transition-transform duration-500 group-hover:scale-x-100" />
                 </div>
               </Reveal>

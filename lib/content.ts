@@ -818,7 +818,7 @@ export const mvi = {
     { name: "GS / Messman Ready Course", body: "Steward duties, bed making, galley operations, and waste management." },
     { name: "Mental Health Awareness Course", body: "Alcohol and drug awareness, stress management, and mental health topics." },
     { name: "AB Ready Course", body: "Shipboard safety, navigation, watchkeeping, and deck operations." },
-    { name: "Wheel Simulator Training", body: "Hands-on bridge simulator practice for navigation, manoeuvring, and watchkeeping." },
+    { name: "Wheel Simulator Training", body: "" },
     { name: "OLR Ready Course", body: "Arc and gas welding." },
     { name: "Cadet Ready Course", body: "Deck operations, engine room, messman duties, and English & Chinese language training." },
     { name: "4/E On-the-Job Training (OJT) Course", body: "Duties and responsibilities of the Fourth Engineer, theoretical and practical training on purifiers, air compressors and pumps, bunker calculations, and 4/E handover and takeover procedures." },
