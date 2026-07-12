@@ -4,6 +4,9 @@ A modern, interactive redesign of [meec.edu.mm](https://meec.edu.mm/) for Mahar 
 Education Centre. All copy and photography are taken from the original site; the design,
 layout, and interactions are new.
 
+> 📖 **Maintenance & operations guide (Burmese): [MAINTENANCE.md](MAINTENANCE.md)** —
+> hosting/DNS/email setup, content-editing recipes, troubleshooting, and checklists.
+
 ## Stack
 
 - **Next.js 15** (App Router) + **React 19**
@@ -62,9 +65,9 @@ public/meec/        original images downloaded from meec.edu.mm
 - Built to a quality floor: responsive (375px → desktop), visible focus states,
   `prefers-reduced-motion` respected, WebP images with reserved dimensions.
 
-## Notes / next steps
+## Status
 
-- The original site's stat counters showed `0 K` (a bug); placeholder figures are used here —
-  replace with real numbers in `lib/content.ts`.
-- The subscribe form is currently front-end only — wire it to an email provider/API.
-- Inner pages (About, full Programs, Contact, Blog) can be added next.
+- Live at **https://www.meec.edu.mm** (Vercel, auto-deploys from `main`).
+- Contact form delivers to `inquiry@meec.edu.mm` via the school's cPanel SMTP
+  (`app/api/inquiry/route.ts`, nodemailer) — env vars documented in MAINTENANCE.md.
+- Blog supports YouTube videos (including Shorts) via a `youtube` field on posts.
