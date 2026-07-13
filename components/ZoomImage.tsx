@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
@@ -18,7 +19,11 @@ type ZoomImageProps = {
  */
 export default function ZoomImage({ src, alt, sizes, className, loading }: ZoomImageProps) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const reduce = useReducedMotion();
+
+  // Portal target only exists in the browser.
+  useEffect(() => setMounted(true), []);
 
   // Close on Escape and lock body scroll while open.
   useEffect(() => {
@@ -44,39 +49,45 @@ export default function ZoomImage({ src, alt, sizes, className, loading }: ZoomI
         <Image src={src} alt={alt} fill sizes={sizes} loading={loading} className={className} />
       </button>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-ink/85 p-5"
-            onClick={() => setOpen(false)}
-            role="dialog"
-            aria-modal="true"
-            aria-label={alt}
-          >
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              aria-label="Close"
-              className="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-surface text-xl text-ink"
-            >
-              ✕
-            </button>
-            <motion.div
-              initial={reduce ? { opacity: 0 } : { scale: 0.94, opacity: 0 }}
-              animate={reduce ? { opacity: 1 } : { scale: 1, opacity: 1 }}
-              exit={reduce ? { opacity: 0 } : { scale: 0.96, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="relative h-[82vh] w-full max-w-4xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image src={src} alt={alt} fill sizes="100vw" className="object-contain" />
-            </motion.div>
-          </motion.div>
+      {/* Portal to <body> so ancestor CSS transforms (e.g. Tilt) can't trap the
+          fixed overlay inside the card. */}
+      {mounted &&
+        createPortal(
+          <AnimatePresence>
+            {open && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-50 flex items-center justify-center bg-ink/85 p-5"
+                onClick={() => setOpen(false)}
+                role="dialog"
+                aria-modal="true"
+                aria-label={alt}
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  aria-label="Close"
+                  className="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-surface text-xl text-ink"
+                >
+                  ✕
+                </button>
+                <motion.div
+                  initial={reduce ? { opacity: 0 } : { scale: 0.94, opacity: 0 }}
+                  animate={reduce ? { opacity: 1 } : { scale: 1, opacity: 1 }}
+                  exit={reduce ? { opacity: 0 } : { scale: 0.96, opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="relative h-[82vh] w-full max-w-4xl"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Image src={src} alt={alt} fill sizes="100vw" className="object-contain" />
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body,
         )}
-      </AnimatePresence>
     </>
   );
 }
