@@ -101,7 +101,7 @@ export default function EventsGallery({
               onClick={(e) => e.stopPropagation()}
             >
               {/* Gallery frame: white mat + gold trim hugging the photo */}
-              <div className="rounded-[22px] bg-white p-2 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.65)] sm:p-2.5">
+              <div className="rounded-[22px] bg-linear-to-r from-primary via-accent to-primary p-2 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.65)] sm:p-2.5">
                 <div className="rounded-2xl border-2 border-accent/60 p-1 sm:p-1.5">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
