@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import SiteShell from "@/components/SiteShell";
 import PageHero from "@/components/PageHero";
@@ -7,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import Tilt from "@/components/Tilt";
 import Parallax from "@/components/Parallax";
 import Icon from "@/components/Icon";
+import ZoomImage from "@/components/ZoomImage";
 import { recruitment, site } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -83,30 +83,28 @@ export default function RecruitmentsPage() {
                     <Reveal className="col-span-2">
                       <Tilt max={6}>
                         <div className="group relative aspect-[16/10] overflow-hidden rounded-[var(--radius-card)] border border-line shadow-[0_20px_50px_-28px_rgba(15,110,86,0.5)]">
-                          <Image
+                          <ZoomImage
                             src={section.images[0]}
                             alt={`${section.title} 1`}
-                            fill
                             loading="lazy"
                             sizes="(max-width:768px) 100vw, 46vw"
                             className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
                           />
-                          <span className="absolute inset-0 bg-linear-to-t from-ink/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                          <span className="pointer-events-none absolute inset-0 bg-linear-to-t from-ink/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                         </div>
                       </Tilt>
                     </Reveal>
                     {section.images.slice(1).map((img, ii) => (
                       <Reveal key={img} delay={0.1 * (ii + 1)}>
                         <div className="group relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] border border-line">
-                          <Image
+                          <ZoomImage
                             src={img}
                             alt={`${section.title} ${ii + 2}`}
-                            fill
                             loading="lazy"
                             sizes="(max-width:768px) 50vw, 23vw"
                             className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                           />
-                          <span className="absolute inset-0 bg-primary-deep/0 transition-colors duration-300 group-hover:bg-primary-deep/15" />
+                          <span className="pointer-events-none absolute inset-0 bg-primary-deep/0 transition-colors duration-300 group-hover:bg-primary-deep/15" />
                         </div>
                       </Reveal>
                     ))}

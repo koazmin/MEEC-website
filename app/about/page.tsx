@@ -4,6 +4,7 @@ import SiteShell from "@/components/SiteShell";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
+import ZoomImage from "@/components/ZoomImage";
 import Tilt from "@/components/Tilt";
 import AnimatedHeading from "@/components/AnimatedHeading";
 import TimelineReveal from "@/components/effects/TimelineReveal";
@@ -35,7 +36,7 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2">
           <Reveal>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] border border-line">
-              <Image src="/meec/vision.webp" alt="MEEC vision" fill sizes="(max-width:768px) 100vw, 45vw" className="object-cover" />
+              <ZoomImage src="/meec/vision.webp" alt="MEEC vision" sizes="(max-width:768px) 100vw, 45vw" className="object-cover" />
             </div>
           </Reveal>
           <Reveal delay={0.1}>

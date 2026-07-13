@@ -5,6 +5,7 @@ import SiteShell from "@/components/SiteShell";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
+import ZoomImage from "@/components/ZoomImage";
 import PartnersGrid from "@/components/PartnersGrid";
 import { oes } from "@/lib/content";
 
@@ -130,10 +131,9 @@ export default function OesPage() {
               <Reveal key={p.name} delay={(i % 3) * 0.06}>
                 <div className="overflow-hidden rounded-[var(--radius-card)] border border-line bg-paper">
                   <div className="relative aspect-[16/10]">
-                    <Image
+                    <ZoomImage
                       src={p.image}
                       alt={p.name}
-                      fill
                       loading="lazy"
                       sizes="(max-width:768px) 100vw, 33vw"
                       className="object-cover"

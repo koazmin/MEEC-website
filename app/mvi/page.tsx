@@ -8,6 +8,7 @@ import Tilt from "@/components/Tilt";
 import AnimatedHeading from "@/components/AnimatedHeading";
 import WaveDivider from "@/components/WaveDivider";
 import Icon from "@/components/Icon";
+import ZoomImage from "@/components/ZoomImage";
 import { mvi } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -187,18 +188,17 @@ export default function MviPage() {
               <Reveal key={src} delay={(i % 3) * 0.06}>
                 <Tilt max={7}>
                   <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-line">
-                    <Image
+                    <ZoomImage
                       src={src}
-                      alt="MVI campus"
-                      fill
+                      alt={`MVI training ${i + 1}`}
                       loading="lazy"
                       sizes="(max-width:768px) 50vw, 33vw"
                       className="object-cover transition-transform duration-[800ms] ease-out group-hover:scale-110"
                     />
-                    <span className="absolute inset-0 bg-linear-to-t from-ink/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                    <span className="absolute bottom-3 left-3 flex items-center gap-1.5 text-sm font-medium text-white opacity-0 transition-all duration-300 group-hover:opacity-100">
+                    <span className="pointer-events-none absolute inset-0 bg-linear-to-t from-ink/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <span className="pointer-events-none absolute bottom-3 left-3 flex items-center gap-1.5 text-sm font-medium text-white opacity-0 transition-all duration-300 group-hover:opacity-100">
                       <Icon name="anchor" className="h-4 w-4" />
-                      MVI campus
+                      MVI training
                     </span>
                   </div>
                 </Tilt>
