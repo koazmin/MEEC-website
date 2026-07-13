@@ -826,12 +826,12 @@ export const mvi = {
     "Trained by qualified maritime professionals — certified deck officers, chief engineers, maritime instructors, and language specialists.",
   hero: "/meec/mvi/campus-01.webp",
   campus: [
-    "/meec/mvi/campus-02.webp",
-    "/meec/mvi/campus-03.webp",
-    "/meec/mvi/campus-04.webp",
-    "/meec/mvi/campus-05.webp",
-    "/meec/mvi/campus-06.webp",
-    "/meec/mvi/history.webp",
+    "/meec/mvi/training-01.jpg",
+    "/meec/mvi/training-02.jpg",
+    "/meec/mvi/training-03.jpg",
+    "/meec/mvi/training-04.jpg",
+    "/meec/mvi/training-05.jpg",
+    "/meec/mvi/training-06.jpg",
   ],
   trainerPhotos: [
     "/meec/mvi/trainer-01.webp",
