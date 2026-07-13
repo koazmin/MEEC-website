@@ -939,7 +939,7 @@ export const blogPosts: BlogPost[] = [
     title: "Why I Love Studying GED at MEEC",
     date: "July 2026",
     excerpt:
-      "A MEEC student shares, in their own words, what makes studying for the GED here worthwhile.",
+      "Hear directly from a MEEC student about why the GED journey is worth it.",
     image: "/meec/blog/vid-Xr8jNdSUUT4.jpg",
     youtube: "https://youtube.com/shorts/Xr8jNdSUUT4",
   },
@@ -948,7 +948,7 @@ export const blogPosts: BlogPost[] = [
     title: "What a day in the life of an IGCSE student looks like",
     date: "July 2026",
     excerpt:
-      "Step inside a typical school day at MEEC — the classes, activities, and small moments that make up an IGCSE student's routine.",
+      "Step inside a day at MEEC and experience how our IGCSE students learn, grow, and thrive every day.",
     image: "/meec/blog/vid-0GqmwwN11GM.jpg",
     youtube: "https://youtu.be/0GqmwwN11GM",
   },
