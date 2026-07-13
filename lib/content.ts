@@ -359,14 +359,22 @@ export const programAccreditation =
   "Curricula are delivered by Midwest College of London Limited (Company No. 14375292, registered in England & Wales) and regulated by the Ofqual and SQF awarding bodies.";
 
 export const gallery = [
-  "/meec/gallery-1.webp",
-  "/meec/gallery-2.webp",
-  "/meec/gallery-3.webp",
-  "/meec/gallery-4.webp",
-  "/meec/gallery-5.webp",
-  "/meec/gallery-6.webp",
-  "/meec/gallery-7.webp",
-  "/meec/gallery-8.webp",
+  "/meec/activity/activity-01.jpg",
+  "/meec/activity/activity-02.jpg",
+  "/meec/activity/activity-03.jpg",
+  "/meec/activity/activity-04.jpg",
+  "/meec/activity/activity-05.jpg",
+  "/meec/activity/activity-06.jpg",
+  "/meec/activity/activity-07.jpg",
+  "/meec/activity/activity-08.jpg",
+  "/meec/activity/activity-09.jpg",
+  "/meec/activity/activity-10.jpg",
+  "/meec/activity/activity-11.jpg",
+  "/meec/activity/activity-12.jpg",
+  "/meec/activity/activity-13.jpg",
+  "/meec/activity/activity-14.jpg",
+  "/meec/activity/activity-15.jpg",
+  "/meec/activity/activity-16.jpg",
 ];
 
 // MEEC community & event posts (day trips, classes, activities).
