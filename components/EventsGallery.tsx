@@ -13,6 +13,8 @@ type EventsGalleryProps = {
   surface?: boolean;
 };
 
+const PREVIEW_COUNT = 8;
+
 export default function EventsGallery({
   eyebrow = "Life at MEEC",
   title = "Moments from our community",
@@ -20,7 +22,9 @@ export default function EventsGallery({
   surface = false,
 }: EventsGalleryProps) {
   const [open, setOpen] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
   const reduce = useReducedMotion();
+  const visible = showAll ? events : events.slice(0, PREVIEW_COUNT);
 
   return (
     <section className={`py-20 md:py-28 ${surface ? "bg-surface" : ""}`}>
@@ -32,7 +36,7 @@ export default function EventsGallery({
         </div>
 
         <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-          {events.map((src, i) => (
+          {visible.map((src, i) => (
             <motion.button
               key={src}
               onClick={() => setOpen(i)}
@@ -55,6 +59,19 @@ export default function EventsGallery({
             </motion.button>
           ))}
         </div>
+
+        {events.length > PREVIEW_COUNT && (
+          <div className="mt-8 text-center">
+            <button
+              type="button"
+              onClick={() => setShowAll((v) => !v)}
+              className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-primary hover:text-primary"
+            >
+              {showAll ? "Show fewer photos" : `View all ${events.length} photos`}
+              <Icon name="arrow" className={`h-4 w-4 transition-transform ${showAll ? "-rotate-90" : "rotate-90"}`} />
+            </button>
+          </div>
+        )}
       </div>
 
       <AnimatePresence>
