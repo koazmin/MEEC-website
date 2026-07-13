@@ -21,29 +21,50 @@ export default function Gallery() {
           <p className="mt-4 text-lg text-muted">{activities.body}</p>
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-          {gallery.map((src, i) => (
-            <motion.button
-              key={src}
-              onClick={() => setOpen(i)}
-              initial={reduce ? false : { opacity: 0, scale: 0.92 }}
-              whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: reduce ? 0 : (i % 4) * 0.07 }}
-              className="group relative aspect-square overflow-hidden rounded-2xl border border-line"
-              aria-label={`Open campus photo ${i + 1}`}
-            >
-              <Image
-                src={src}
-                alt={`MEEC campus activity ${i + 1}`}
-                fill
-                loading="lazy"
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <span className="absolute inset-0 bg-primary-deep/0 transition-colors group-hover:bg-primary-deep/15" />
-            </motion.button>
-          ))}
+        {/* Bento mosaic — every 5th photo becomes a large 2x2 feature tile */}
+        <div className="mt-8 grid grid-flow-dense grid-cols-2 gap-3 md:grid-cols-4">
+          {gallery.map((src, i) => {
+            const featured = i % 5 === 0;
+            return (
+              <motion.button
+                key={src}
+                onClick={() => setOpen(i)}
+                initial={reduce ? false : { opacity: 0, scale: 0.94 }}
+                whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.4, delay: reduce ? 0 : (i % 4) * 0.06 }}
+                className={`group relative aspect-square overflow-hidden border border-line ${
+                  featured ? "col-span-2 row-span-2 rounded-[26px]" : "rounded-2xl"
+                }`}
+                aria-label={`Open campus photo ${i + 1}`}
+              >
+                <Image
+                  src={src}
+                  alt={`MEEC campus activity ${i + 1}`}
+                  fill
+                  loading="lazy"
+                  sizes={featured ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 50vw, 25vw"}
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+                {/* Hover veil + zoom hint */}
+                <span className="absolute inset-0 bg-linear-to-t from-primary-deep/45 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <span
+                  className={`absolute bottom-3 right-3 flex items-center justify-center rounded-full bg-white/90 text-primary-deep opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 ${
+                    featured ? "h-11 w-11" : "h-9 w-9"
+                  }`}
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="h-4 w-4">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.3-4.3M11 8v6M8 11h6" />
+                  </svg>
+                </span>
+                {/* Accent corner on feature tiles */}
+                {featured && (
+                  <span className="absolute left-0 top-0 h-1.5 w-16 rounded-br-full bg-linear-to-r from-accent to-accent/0" />
+                )}
+              </motion.button>
+            );
+          })}
         </div>
       </div>
 
