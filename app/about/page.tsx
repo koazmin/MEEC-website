@@ -26,7 +26,7 @@ export default function AboutPage() {
         eyebrow="About MEEC"
         title="Where inspiration meets education"
         subtitle={aboutIntro.welcome}
-        image="/meec/japanese/jp-anatomy.jpg"
+        image="/meec/about/students-hero.jpg"
         watermark="ABOUT"
         variant="academic"
       />
@@ -36,7 +36,7 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2">
           <Reveal>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] border border-line">
-              <ZoomImage src="/meec/vision.webp" alt="MEEC vision" sizes="(max-width:768px) 100vw, 45vw" className="object-cover" />
+              <ZoomImage src="/meec/about/students-01.jpg" alt="MEEC students" sizes="(max-width:768px) 100vw, 45vw" className="object-cover" />
             </div>
           </Reveal>
           <Reveal delay={0.1}>
@@ -76,6 +76,42 @@ export default function AboutPage() {
                 ))}
               </div>
             </TimelineReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Our students — photo strip */}
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-5">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">Our students</p>
+            <h2 className="mt-3 font-display text-3xl font-medium leading-tight text-ink md:text-4xl">
+              The faces of MEEC
+            </h2>
+          </Reveal>
+          <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
+            {[
+              "/meec/about/students-02.jpg",
+              "/meec/about/students-03.jpg",
+              "/meec/about/students-04.jpg",
+              "/meec/about/students-05.jpg",
+            ].map((src, i) => (
+              <Reveal key={src} delay={(i % 4) * 0.07}>
+                <div
+                  className={`group relative aspect-[4/3] overflow-hidden border border-line ${
+                    i % 2 ? "rounded-2xl md:translate-y-4" : "rounded-2xl"
+                  }`}
+                >
+                  <ZoomImage
+                    src={src}
+                    alt={`MEEC students ${i + 1}`}
+                    loading="lazy"
+                    sizes="(max-width:768px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
