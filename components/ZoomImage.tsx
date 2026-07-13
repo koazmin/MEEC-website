@@ -78,10 +78,19 @@ export default function ZoomImage({ src, alt, sizes, className, loading }: ZoomI
                   animate={reduce ? { opacity: 1 } : { scale: 1, opacity: 1 }}
                   exit={reduce ? { opacity: 0 } : { scale: 0.96, opacity: 0 }}
                   transition={{ duration: 0.25 }}
-                  className="relative h-[82vh] w-full max-w-4xl"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <Image src={src} alt={alt} fill sizes="100vw" className="object-contain" />
+                  {/* Gallery frame: white mat + gold trim hugging the photo */}
+                  <div className="rounded-[22px] bg-white p-2 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.65)] sm:p-2.5">
+                    <div className="rounded-2xl border-2 border-accent/60 p-1 sm:p-1.5">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={src}
+                        alt={alt}
+                        className="block max-h-[74vh] max-w-[86vw] rounded-xl object-contain sm:max-h-[78vh]"
+                      />
+                    </div>
+                  </div>
                 </motion.div>
               </motion.div>
             )}

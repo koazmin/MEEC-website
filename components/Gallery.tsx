@@ -92,14 +92,23 @@ export default function Gallery() {
               <Icon name="arrow" className="h-5 w-5 rotate-180" />
             </button>
             <motion.div
-              className="relative h-[70vh] w-full max-w-3xl overflow-hidden rounded-2xl"
               initial={{ scale: 0.94, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.94, opacity: 0 }}
               transition={{ duration: 0.25 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <Image src={gallery[open]} alt={`MEEC campus activity ${open + 1}`} fill className="object-contain" />
+              {/* Gallery frame: white mat + gold trim hugging the photo */}
+              <div className="rounded-[22px] bg-white p-2 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.65)] sm:p-2.5">
+                <div className="rounded-2xl border-2 border-accent/60 p-1 sm:p-1.5">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={gallery[open]}
+                    alt={`MEEC campus activity ${open + 1}`}
+                    className="block max-h-[74vh] max-w-[86vw] rounded-xl object-contain sm:max-h-[78vh]"
+                  />
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         )}
