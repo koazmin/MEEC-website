@@ -537,6 +537,20 @@ export const oes = {
       photo: "/meec/team/oes-hsu-hsu-aung.webp",
     },
   ],
+  // Counselling, events, and student send-off moments.
+  gallery: [
+    "/meec/oes/gallery-01.jpg",
+    "/meec/oes/gallery-02.jpg",
+    "/meec/oes/gallery-03.jpg",
+    "/meec/oes/gallery-04.jpg",
+    "/meec/oes/gallery-05.jpg",
+    "/meec/oes/gallery-06.jpg",
+    "/meec/oes/gallery-07.jpg",
+    "/meec/oes/gallery-08.jpg",
+    "/meec/oes/gallery-09.jpg",
+    "/meec/oes/gallery-10.jpg",
+    "/meec/oes/gallery-11.jpg",
+  ],
   // Featured partners with logos.
   partners: [
     { name: "SEGi University", country: "Malaysia", image: "/meec/oes/uni-segi.jpg" },

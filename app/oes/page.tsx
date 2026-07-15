@@ -203,6 +203,36 @@ export default function OesPage() {
         </div>
       </section>
 
+      {/* OES gallery — masonry of counselling & send-off moments */}
+      <section className="py-20 md:py-24">
+        <div className="mx-auto max-w-6xl px-5">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">In pictures</p>
+            <h2 className="mt-3 font-display text-3xl font-medium leading-tight text-ink md:text-4xl">
+              Moments with our students
+            </h2>
+            <p className="mt-4 max-w-2xl text-lg text-muted">
+              Counselling sessions, campus send-offs, and the milestones we share with students on their overseas journey.
+            </p>
+          </Reveal>
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            {oes.gallery.map((src, i) => (
+              <Reveal key={src} delay={(i % 4) * 0.05}>
+                <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-line">
+                  <ZoomImage
+                    src={src}
+                    alt={`OES moment ${i + 1}`}
+                    loading="lazy"
+                    sizes="(max-width:768px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* OES team */}
       <section className="bg-surface py-20 md:py-24">
         <div className="mx-auto max-w-6xl px-5">
