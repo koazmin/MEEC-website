@@ -967,13 +967,29 @@ export function youtubeId(input: string): string {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "honourable-student",
+    title: "Honourable Student",
+    date: "July 2026",
+    excerpt: "Celebrating a MEEC student whose dedication and character set an example for us all.",
+    image: "/meec/blog/vid-3QJ89yz5q2M.jpg",
+    youtube: "https://youtu.be/3QJ89yz5q2M",
+  },
+  {
+    slug: "congratulations-to-our-student",
+    title: "Congratulations to Our Student",
+    date: "July 2026",
+    excerpt: "Marking a proud milestone — join us in congratulating our student on this achievement.",
+    image: "/meec/blog/vid-w9Dx5ys4YYs.jpg",
+    youtube: "https://youtu.be/w9Dx5ys4YYs",
+  },
+  {
     slug: "why-i-love-studying-ged-at-meec",
     title: "Why I Love Studying GED at MEEC",
     date: "July 2026",
     excerpt:
       "Hear directly from a MEEC student about why the GED journey is worth it.",
-    image: "/meec/blog/vid-Xr8jNdSUUT4.jpg",
-    youtube: "https://youtube.com/shorts/Xr8jNdSUUT4",
+    image: "/meec/blog/vid-XT7uMFbruGE.jpg",
+    youtube: "https://youtube.com/shorts/XT7uMFbruGE",
   },
   {
     slug: "a-day-in-the-life-of-an-igcse-student",
@@ -981,8 +997,8 @@ export const blogPosts: BlogPost[] = [
     date: "July 2026",
     excerpt:
       "Step inside a day at MEEC and experience how our IGCSE students learn, grow, and thrive every day.",
-    image: "/meec/blog/vid-0GqmwwN11GM.jpg",
-    youtube: "https://youtu.be/0GqmwwN11GM",
+    image: "/meec/blog/vid-D8aOc4NAFMg.jpg",
+    youtube: "https://youtu.be/D8aOc4NAFMg",
   },
   {
     slug: "message-from-the-editor-in-chief",
