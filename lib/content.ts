@@ -1068,17 +1068,26 @@ export const recruitment = {
     {
       title: "Open Days & Campus Tours",
       body: "At MEEC, our Open Days and Campus Tours give future students the chance to experience life on campus. You'll explore our learning facilities, meet lecturers and student ambassadors, and discover the opportunities available at MEEC. Whether you're considering a program, curious about student life, or looking for admission guidance, our tours are the perfect way to see what makes MEEC unique.",
-      images: ["/meec/recruitments/r1.webp", "/meec/recruitments/r4.webp", "/meec/recruitments/r7.webp"],
+      images: ["/meec/recruitments/open-days-1.jpg", "/meec/recruitments/open-days-2.jpg"],
     },
     {
       title: "School Visits & Outreach",
       body: "At MEEC, we bring the campus experience directly to schools. Our recruitment team visits partner schools to share information about programs, scholarships, and career opportunities. Through engaging presentations, interactive workshops, and Q&A sessions, students gain valuable insights to help them plan their future. These visits are designed to inspire, inform, and support students in making confident decisions about their education journey with MEEC.",
-      images: ["/meec/recruitments/r2.webp", "/meec/recruitments/r3.webp", "/meec/recruitments/r5.webp"],
+      images: [
+        "/meec/recruitments/school-visits-1.jpg",
+        "/meec/recruitments/school-visits-2.jpg",
+        "/meec/recruitments/school-visits-3.jpg",
+        "/meec/recruitments/school-visits-4.jpg",
+      ],
     },
     {
       title: "Info Sessions & Webinars",
       body: "At MEEC, we host regular information sessions and webinars to guide students and parents through the admission journey. These sessions provide clear insights into our programs, scholarships, and career pathways, while also offering a chance to interact directly with our faculty and advisors.",
-      images: ["/meec/recruitments/r6.webp", "/meec/recruitments/r8.webp", "/meec/recruitments/r9.webp"],
+      images: [
+        "/meec/recruitments/info-sessions-3.jpg",
+        "/meec/recruitments/info-sessions-1.jpg",
+        "/meec/recruitments/info-sessions-2.jpg",
+      ],
     },
   ],
   gains: [

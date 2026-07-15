@@ -22,7 +22,7 @@ export default function RecruitmentsPage() {
         eyebrow="Join MEEC"
         title="Recruitments & outreach"
         subtitle="Connecting with students, sharing opportunities, and helping them make informed choices for their journey."
-        image="/meec/recruitments/r4.webp"
+        image="/meec/recruitments/school-visits-3.jpg"
         watermark="JOIN"
         variant="career"
       />
