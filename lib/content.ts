@@ -1065,6 +1065,13 @@ export const japanese = {
   ],
   jlpt: ["N5", "N4", "N3", "N2", "N1"],
   cities: ["Tokyo", "Osaka", "Nagoya", "Kobe"],
+  placement: {
+    statement:
+      "MEEC provides student placement services to Japanese language schools, vocational colleges, and universities through partner networks in Japan.",
+    promise:
+      "We introduce only candidates with complete documentation and verified motivation — quality over volume.",
+    routes: ["Japanese language schools", "Vocational colleges", "Universities"],
+  },
   skilledFields: [
     { label: "Nursing care", icon: "heart" },
     { label: "Food service industry", icon: "bowl" },

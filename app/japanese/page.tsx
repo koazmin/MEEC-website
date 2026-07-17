@@ -116,8 +116,34 @@ export default function JapanesePage() {
         </div>
       </section>
 
+      {/* Student placement — how MEEC introduces students to partner institutions */}
+      <section className="bg-surface py-20 md:py-24">
+        <div className="mx-auto max-w-4xl px-5 text-center">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">Student placement</p>
+            <p className="mt-5 font-display text-2xl font-medium leading-snug text-ink md:text-[2rem]">
+              {japanese.placement.statement}
+            </p>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="mt-7 flex flex-wrap justify-center gap-2">
+              {japanese.placement.routes.map((r) => (
+                <span key={r} className="rounded-full bg-primary-soft px-4 py-2 text-sm font-medium text-primary-deep">
+                  {r}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+          <Reveal delay={0.14}>
+            <p className="mx-auto mt-8 max-w-2xl border-l-4 border-accent pl-5 text-left font-display text-lg italic leading-relaxed text-ink/85">
+              {japanese.placement.promise}
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Skilled worker fields */}
-      <section className="bg-surface py-20 md:py-28">
+      <section className="py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">Work in Japan</p>
