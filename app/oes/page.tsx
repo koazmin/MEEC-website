@@ -7,7 +7,7 @@ import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
 import ZoomImage from "@/components/ZoomImage";
 import PartnersGrid from "@/components/PartnersGrid";
-import { oes } from "@/lib/content";
+import { oes, youtubeId } from "@/lib/content";
 
 import FlightPath from "@/components/effects/FlightPath";
 
@@ -200,6 +200,33 @@ export default function OesPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Recorded info session */}
+      <section className="bg-surface py-20 md:py-24">
+        <div className="mx-auto max-w-4xl px-5">
+          <Reveal>
+            <p className="text-center text-sm font-semibold uppercase tracking-[0.16em] text-accent">
+              {oes.session.eyebrow}
+            </p>
+            <h2 className="mt-3 text-center font-display text-3xl font-medium leading-tight text-ink md:text-4xl">
+              {oes.session.title}
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-muted">{oes.session.body}</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="relative mt-10 aspect-video overflow-hidden rounded-[var(--radius-card)] border border-line shadow-[0_24px_60px_-32px_rgba(15,110,86,0.5)]">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${youtubeId(oes.session.youtube)}?rel=0&modestbranding=1`}
+                title={oes.session.title}
+                className="absolute inset-0 h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 
