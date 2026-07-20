@@ -539,7 +539,7 @@ export const oes = {
   ],
   // Recorded info session embedded on the OES page.
   session: {
-    youtube: "https://youtu.be/D9ng0FEBQ9I",
+    youtube: "https://youtu.be/b3e-yozHoQY",
     eyebrow: "Info session",
     title: "Watch: your study-abroad questions, answered",
     body: "A recorded information session from our overseas education services — presented in Burmese — walking through study pathways, admission requirements, and the support students receive from first consultation to departure.",
