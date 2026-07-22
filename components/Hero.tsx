@@ -110,8 +110,8 @@ export default function Hero() {
           style={{ y: barsY }}
           className="pointer-events-none absolute right-[6%] top-0 hidden h-full items-stretch gap-3 md:flex"
         >
-          <span className="mt-20 w-3 rounded-full bg-[#30d0c0]/70" />
-          <span className="mb-28 mt-10 w-3 rounded-full bg-primary/60" />
+          <span className="mt-20 w-3 rounded-full bg-primary/60" />
+          <span className="mb-28 mt-10 w-3 rounded-full bg-[#30d0c0]/70" />
         </motion.div>
 
         {/* Scroll cue */}
