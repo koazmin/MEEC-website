@@ -24,7 +24,7 @@ export default function OesPage() {
         eyebrow={oes.tagline}
         title="Study abroad, with MEEC by your side"
         subtitle={oes.intro}
-        image="/meec/japanese/jp-reception.jpg"
+        image="/meec/oes/oes-hero.jpg"
         watermark="OES"
         variant="global"
       />
