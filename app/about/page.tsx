@@ -26,7 +26,7 @@ export default function AboutPage() {
         eyebrow="About MEEC"
         title="Where inspiration meets education"
         subtitle={aboutIntro.welcome}
-        image="/meec/about/students-hero.jpg"
+        image="/meec/about/building-hero.jpg"
         watermark="ABOUT"
         variant="academic"
       />
