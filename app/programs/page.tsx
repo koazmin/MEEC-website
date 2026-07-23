@@ -31,7 +31,7 @@ export default function ProgramsPage() {
         eyebrow="Our programs"
         title="Programs built around your goals"
         subtitle="Academic pathways and professional diplomas, taught beyond the ordinary."
-        image="/meec/japanese/jp-class-study.jpg"
+        image="/meec/activity/activity-13.jpg"
         watermark="PROGRAMS"
         variant="academic"
       />
